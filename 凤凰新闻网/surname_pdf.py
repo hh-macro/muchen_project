@@ -60,7 +60,6 @@ def news_list(category_id):
             break
 
 
-
 def news_single(news_title, news_url):
     config = pdfkit.configuration(wkhtmltopdf=r'D:\plug\wkhtmltopdf\bin\wkhtmltopdf.exe')
     response = requests.get(news_url)
@@ -138,9 +137,9 @@ if __name__ == '__main__':
     category_id = '1073'
     category_name = '凤凰旅游'
     file_create(category_name)  # 文件夹检测
-    news_list(category_id)  # 文章列表信
+    # news_list(category_id)  # 文章列表信
 
     # 以下为单个测试----------------------
-    # news_title = 'text'
-    # news_url = 'https://www.fhxww.cn/content/2018/07/19/5123776.html'
-    # news_single(news_title, news_url)  # 具体文章爬取
+    news_title = 'text'
+    news_url = 'https://www.fhxww.cn/content/2018/07/19/5123776.html'
+    news_single(news_title, news_url)  # 具体文章爬取
