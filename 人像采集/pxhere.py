@@ -42,7 +42,7 @@ session = requests.Session()
 
 def page_data(link):
     response = session.get(link, headers=headers, cookies=cookies)
-    url_data = re.findall('<a href="(.*?)" class="current-page-photo"', response.text)[0]
+    url_data = re.findall('<a_tool href="(.*?)" class="current-page-photo"', response.text)[0]
     time.sleep(0.3)
     png_save(url_data)
 
@@ -68,7 +68,7 @@ def imge_page(i):
     response2 = session.get(url, headers=headers, cookies=cookies, params=params)
     print(response2.status_code)
     content_str = response2.json()['data']
-    box_href_list = re.findall(' <a href=\"(.*?)\" class=\"current-item-photo\">', content_str)
+    box_href_list = re.findall(' <a_tool href=\"(.*?)\" class=\"current-item-photo\">', content_str)
     for idx, box_href in enumerate(box_href_list):
         link = 'https://pxhere.com' + box_href
         page_data(link)

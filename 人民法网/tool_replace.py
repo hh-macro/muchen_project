@@ -44,9 +44,8 @@ def replace_keys(data, mapping):
 with open('人民法院案例库/data.json', 'r', encoding='utf-8') as file:
     data = json.load(file)
 
-
+print(len(data))
 transformed_data = [replace_keys(item, mapping) for item in data]
-# print(transformed_data)
 
 with open('人民法院案例库/new_data.json', 'w', encoding='utf-8') as new_file:
     json.dump(transformed_data, new_file, ensure_ascii=False, indent=4)

@@ -42,7 +42,7 @@ def time_bi(cpws_al_rk_time):
 
 
 def json_file(data_j):
-    with open('人民法院案例库/data.json', 'a', encoding='utf-8') as file:
+    with open('人民法院案例库/data.json', 'a_tool', encoding='utf-8') as file:
         json_string = json.dumps(data_j, indent=4, ensure_ascii=False) + ',\n'
         file.write(json_string)
     print("数据插入成功！")

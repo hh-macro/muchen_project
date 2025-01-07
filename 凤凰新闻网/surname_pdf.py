@@ -51,7 +51,7 @@ def news_list(category_id):
             li_elements = selector.css('.news_list.m_t_40 li')
             for li in li_elements:
                 news_title = li.css('.f_left::text').get()  # 使用xpath获取文本内容
-                news_url = li.css('a::attr(href)').get()
+                news_url = li.css('a_tool::attr(href)').get()
                 news_title = encode_conver(news_title)
                 print(news_title, news_url)
                 news_single(news_title, news_url)  # 具体文章爬取

@@ -56,7 +56,7 @@ def imge_page(page):
     # print(image_jpg_list)
     for image_jpg in image_jpg_list:
         # print(image_jpg)
-        rout_img = re.findall('<a class="act-btn" href="(.*?)" target=', image_jpg)[0]
+        rout_img = re.findall('<a_tool class="act-btn" href="(.*?)" target=', image_jpg)[0]
         png_save(rout_img)
 
 
