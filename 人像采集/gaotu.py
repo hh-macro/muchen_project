@@ -51,7 +51,7 @@ def imge_page(page):
     }
     response = requests.post(url, headers=headers, cookies=cookies, data=data)
     json_pg = json.loads(response.text)
-    image_jpg_list = json_pg['data'][1:]
+    image_jpg_list = json_pg['a_data'][1:]
     # print(len(image_jpg_list))
     # print(image_jpg_list)
     for image_jpg in image_jpg_list:

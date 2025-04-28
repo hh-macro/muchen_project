@@ -70,7 +70,7 @@ def imge_page(page):
     data = json.dumps(data, separators=(',', ':'))
     response = requests.post(url, headers=headers, cookies=cookies, data=data)
     json_pg = json.loads(response.text)
-    image_jpg_list = json_pg['data']['photoSearch']['items']
+    image_jpg_list = json_pg['a_data']['photoSearch']['items']
     for image_jpg in image_jpg_list:
         img_id = image_jpg['assets']['thumbnailMedium']
         png_save(img_id)

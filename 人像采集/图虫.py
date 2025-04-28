@@ -73,7 +73,7 @@ def imge_page(page):
     # print(response.text)
     # print(response.status_code)
     json_pg = json.loads(response.text)
-    json_pg_list = json_pg['data']['hits']
+    json_pg_list = json_pg['a_data']['hits']
     for json_pg in json_pg_list:
         image_id = json_pg['image_id']
         image_url = f'https://cdn9-banquan.ituchong.com/weili/image/ml/{image_id}.webp'

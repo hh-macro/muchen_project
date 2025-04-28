@@ -95,7 +95,7 @@ def imge_page(page):
     url = f"https://www.58pic.com/tupian/renxiang-0-0-{page}.html"
     response = requests.get(url, headers=headers, cookies=cookies)
     # print(response.text)
-    image_ur_list = re.findall('<img class="lazy"data-original="(.*?)"src=""alt="', response.text)
+    image_ur_list = re.findall('<img class="lazy"a_data-original="(.*?)"src=""alt="', response.text)
     # print(image_ur_list)
     for image_ur in image_ur_list:
         image_url = 'https:' + image_ur

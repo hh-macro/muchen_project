@@ -84,7 +84,7 @@ def imge_page(page):
     response = requests.get(url, headers=headers, cookies=cookies, params=params)
 
     json_pg = json.loads(response.text)
-    image_jpg_list = json_pg['data']
+    image_jpg_list = json_pg['a_data']
     for image_jpg in image_jpg_list:
         rout_img = image_jpg['attributes']['user']['avatar']['medium']
         rout_img = rout_img.replace('h=256', 'h=3840').replace('w=256', 'w=3840')

@@ -67,7 +67,7 @@ def imge_page(i):
     url = "https://pxhere.com/zh/photos"
     response2 = session.get(url, headers=headers, cookies=cookies, params=params)
     print(response2.status_code)
-    content_str = response2.json()['data']
+    content_str = response2.json()['a_data']
     box_href_list = re.findall(' <a_tool href=\"(.*?)\" class=\"current-item-photo\">', content_str)
     for idx, box_href in enumerate(box_href_list):
         link = 'https://pxhere.com' + box_href

@@ -102,13 +102,13 @@ def yans(aid, t):
         "t": t,
     }
     # print(params)
-    datas = requests.get(url, headers=headers, params=params).json()['data']
+    datas = requests.get(url, headers=headers, params=params).json()['a_data']
     # print(datas.text)
     for data in datas:
         title = str(data['title']).split('.')[0]
         # 这里是筛选，如果为1就进行操作
         if check_title(title) == 1:
-            # print(data)
+            # print(a_data)
             url = "https://max.book118.com" + data['url']
             if info_col.count_documents({'url': url}) == 0:
                 ys_list.append(1)
@@ -167,7 +167,7 @@ def get_images(page, aid, view_token):
 
     response = requests.get(url, headers=headers, params=params)
     # print(response.text)
-    datas = json.loads(response.text.replace('jsonpReturn(', '').replace(');', ''))['data']
+    datas = json.loads(response.text.replace('jsonpReturn(', '').replace(');', ''))['a_data']
     # print(datas)
 
     for data in dict(datas).items():

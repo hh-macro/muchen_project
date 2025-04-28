@@ -104,7 +104,7 @@ def request_recommend_docs(doc_id, agg_id) -> list[dict]:
     json_data = response.json()
     if json_data['code'] != 200:
         raise requests.RequestException(f"get recommend fail with {json_data['code']} code and msg: {json_data.get('msg')}.")
-    recommend_docs_html = json_data['data']['recommend']
+    recommend_docs_html = json_data['a_data']['recommend']
     soup = BeautifulSoup(recommend_docs_html, 'html.parser')
     recommend_docs = []
     for a_tag in soup.find_all("a"):
@@ -132,7 +132,7 @@ def request_similar_docs(agg_id) -> list[dict]:
     )
     response.raise_for_status()
     json_data = response.json()
-    docs = list(map(lambda x: {'doc_id': x['id'], 'title': x['title']}, json_data['data']))
+    docs = list(map(lambda x: {'doc_id': x['id'], 'title': x['title']}, json_data['a_data']))
     # 第一个文档是自己, 去掉
     return docs[1:]
 
@@ -167,11 +167,11 @@ def request_detail(doc_id):
         if 'nolazy' in cls:
             url = f'http:{img_tag.get("src")}'
         elif 'lazy' in cls:
-            url = f'http:{img_tag.get("data-src")}'
+            url = f'http:{img_tag.get("a_data-src")}'
         else:
             logger.warning(f'unknown img tag class: {cls}')
             continue
-        # page = img_tag.get('data-page')
+        # page = img_tag.get('a_data-page')
         image_urls.append(url)
     # detail-article
     detail_article = soup.select_one('.detail-article')
@@ -204,7 +204,7 @@ def request_doc(doc_id):
     preview_image_urls = []
     for index, img_tag in enumerate(soup.select('#page img')):
         # 非第一页懒加载, 地址在data-src中
-        url = f'http:{img_tag.get("data-src")}'
+        url = f'http:{img_tag.get("a_data-src")}'
         if index == 0:
             url = f'http:{img_tag.get("src")}'
         preview_image_urls.append(url)

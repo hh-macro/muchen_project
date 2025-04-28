@@ -1,0 +1,28 @@
+
+syntax = "proto3";
+
+
+message GetByUserInit_two {
+  int32 name = 1;
+  int32 eutex_a = 2;
+  int32 content = 3;
+  string build = 4;
+  int32 device = 5;
+  repeated InnerMessage inner_list = 6;
+}
+message InnerMessage {
+  NestedMessage nested = 301;
+}
+// 定义更深层的消息
+message NestedMessage {
+  repeated DeepNestedMessage deep_nested = 1;
+}
+// 定义最深层的消息
+message DeepNestedMessage {
+  string cardStem = 8;
+  repeated CoreNestedMessage promptContent = 9;
+}
+
+message CoreNestedMessage {
+  string conText = 2;
+}

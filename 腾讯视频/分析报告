@@ -1,0 +1,213 @@
+{
+    "errCode": 0,
+    "iwkc": "{\"code\":0,\"msg\":\"\",\"auth\":{\"adid\":4001,\"is_vip\":false,\"refresh_id\":\"a724490a9fd1d26c88a84c837bef131e_1743575917\",\"oaid\":23},\"ad\":{\"ad_type\":4,\"empty\":null,\"pause\":{\"order\":{\"ad_type\":4,\"order_id\":\"34339766790\",\"report\":{\"1\":{\"report_list\":[{\"report_begin\":0,\"report_end\":0,\"report_urls\":[\"https://livep.l.qq.com/livemsg?oid=34339766790\\u0026cid=34339924246\\u0026ping_data=EAAoAEAcWhA5M0REQzE2MDM5QkFCNUE0_viewid_B9bCEXENakEdrceAItsLwSwsqgo0XMx1nvVg5VIIEUECK1zISp!zUot!1QdT!Y8szC20VDZ4L1pr6jhqKUG2DsybpCTV0mH4swD1RL4NjSEWR3YOG9OrRbVs9NmTpwG4Op01Fi!p0YSzjcxHdmHkFUDW5s_aLYHYFDnCUQMDvf9Sj5bDQ7qkITMh0yKpXRghz2cE2W!A2GzCljvuSI2YxD8Fpikasbe72xdvruYoGqVlIjWu7ao8XAzyFI2zuvqx!cKTmn2eI2c\\u0026adtype=ZT\\u0026appversion=0\\u0026contract=0\\u0026i=1\\u0026os=3\\u0026datatype=jsonp\\u0026etype=1000\\u0026ch=__CHANNEL_ID__\\u0026seq=__SEQ__\\u0026aseq=__ABS_SEQ__\\u0026xp=3\\u0026reporttime=0\\u0026conn_type=__NET_STATUS__\\u0026tl=1\",\"https://livep.l.qq.com/livemsg?oid=34339766790\\u0026cid=34339924246\\u0026ping_data=EAAoAEAcWhA5M0REQzE2MDM5QkFCNUE0_viewid_B9bCEXENakEdrceAItsLwSwsqgo0XMx1nvVg5VIIEUECK1zISp!zUot!1QdT!Y8szC20VDZ4L1pr6jhqKUG2DsybpCTV0mH4swD1RL4NjSEWR3YOG9OrRbVs9NmTpwG4Op01Fi!p0YSzjcxHdmHkFUDW5s_aLYHYFDnCUQMDvf9Sj5bDQ7qkITMh0yKpXRghz2cE2W!A2GzCljvuSI2YxD8Fpikasbe72xdvruYoGqVlIjWu7ao8XAzyFI2zuvqx!cKTmn2eI2c\\u0026adtype=ZT\\u0026appversion=0\\u0026contract=0\\u0026i=1\\u0026os=3\\u0026datatype=jsonp\\u0026etype=1001\\u0026ch=__CHANNEL_ID__\\u0026seq=__SEQ__\\u0026aseq=__ABS_SEQ__\\u0026xp=3\\u0026reporttime=0\\u0026conn_type=__NET_STATUS__\\u0026tl=1\"],\"api_urls\":[],\"sdk_urls\":[],\"header_info\":\"\",\"max_report_cycles\":5}],\"reporter_dict\":{}},\"2\":{\"report_list\":[],\"reporter_dict\":{}},\"3\":{\"report_list\":[],\"reporter_dict\":{}},\"5\":{\"report_list\":[{\"report_begin\":0,\"report_end\":0,\"report_urls\":[\"https://t.gdt.qq.com/conv/src/61/conv?client=61\\u0026product_id=\\u0026cuser=src\\u0026click_id=ex6br6uaepn2s01\\u0026actionid=__ACTION_ID__\"],\"api_urls\":[],\"sdk_urls\":[],\"header_info\":\"\",\"max_report_cycles\":5}],\"reporter_dict\":{}},\"7\":{\"report_list\":[],\"reporter_dict\":{}},\"10\":{\"report_list\":[],\"reporter_dict\":{}}},\"ad_action\":{\"type\":2,\"scan\":{\"link\":\"https://c.l.qq.com/click?oid=34339766790\\u0026cid=34339924246\\u0026click_data=EAAoAEAcWhA5M0REQzE2MDM5QkFCNUE0_viewid_B9bCEXENakEdrceAItsLwSwsqgo0XMx1nvVg5VIIEUECK1zISp!zUot!1QdT!Y8szC20VDZ4L1pr6jhqKUG2DsybpCTV0mH4swD1RL4NjSEWR3YOG9OrRbVs9NmTpwG4Op01Fi!p0YSzjcxHdmHkFUDW5s_aLYHYFDnCUQMDvf9Sj5bDQ7qkITMh0yKpXRghz2cE2W!A2GzCljvuSI2YxD8Fpikasbe72xdvruYoGqVlIjWu7ao8XAzyFI2zuvqx!cKTmn2eI2c\\u0026adtype=ZT\\u0026appversion=0\\u0026contract=0\\u0026jtype=0\\u0026i=1\\u0026os=3\\u0026s_lp=101\\u0026acttype=__ACTTYPE__\\u0026ch=100000039\\u0026seq=1\\u0026aseq=1\\u0026rt=2\\u0026s=%7B%22da%22%3A%22__WIDTH__%22%2C%22db%22%3A%22__HEIGHT__%22%2C%22down_x%22%3A%22-999%22%2C%22down_y%22%3A%22-999%22%2C%22up_x%22%3A%22-999%22%2C%22up_y%22%3A%22-999%22%7D\\u0026clklpp=__CLICK_LPP__\\u0026xp=3\\u0026conn_type=__NET_STATUS__\\u0026vto=__VIDEO_PLAY_TIME__\\u0026site_set_name=SITE_SET_PCQQ\\u0026device_os_type=windows\\u0026dynamic_creative_id=2302385639\\u0026image_component_ids=19835441540_21058115454\\u0026description_component_ids=19835441540_21058248340\\u0026smart_delivery_template_aid=0\\u0026smart_delivery_template_dc_id=0\\u0026tl=1\",\"is_diff_click_area\":true,\"url\":\"https://ht.gsnuoyou.cn/zb/xq/cq/gdt/a1/?5000ZBG10MXQ-20250326-pc\\u0026qz_gdt=ex6br6uaepn2s01\",\"short_link\":\"https://c.l.qq.com/gdtc?b=LJsTSWScbyseyLfDC5lFYw__\\u0026store=1\",\"enable_click\":true,\"enable_terminal_inside_open_mini_game\":false,\"mini_program_info\":{\"appid\":\"\",\"path\":\"\",\"url_scheme\":\"\",\"show_popup\":false,\"auto_close_ms\":0},\"qrcode_tips\":\"点击或扫码了解详情\",\"landing_page_popup_url\":\"\",\"landing_page_type\":0,\"only_report_click\":false}},\"vr_report_dict\":{\"7\":{\"report_dict\":{\"ad_action_type\":\"1\",\"ad_duration\":\"0\",\"ad_group_id\":\"34339766790\",\"ad_is_bidding\":\"1\",\"ad_is_empty\":\"0\",\"ad_play_source\":\"1\",\"ad_playmode\":\"25\",\"ad_post_idx\":\"0\",\"ad_reportkey_fst\":\"7\",\"ad_reportkey_scd\":\"14\",\"ad_request_id\":\"ex6br6uaepn2s\",\"ad_show_type\":\"49\",\"business\":\"ad\",\"is_trueview\":\"0\",\"trace_id\":\"ex6br6uaepn2s01\",\"whole_ad_type\":\"0\"}}},\"trace_id\":\"ex6br6uaepn2s01\",\"pos_id\":\"1012489093322360\",\"product_type\":\"43\",\"ad_frequency_control_info_list\":{},\"ad_frequency_control\":\"\",\"ad_context\":\"\"},\"poster\":{\"title\":{\"dsp_name\":\"\"},\"advertiser\":{\"description\":\"4月2日公布：重庆成人高考（2025）招生已开启\",\"name\":\"贾老师教育-专本科\",\"icon_url\":\"https://pgdt.gtimg.cn/141/20204/snscosdownload/SZ/reserved/6753f206000a7fd605d779027467bc1e0000008d00004eec?m=1b1e1a3554090941a2461c32f3c37a0a\\u0026ck=1b1e1a3554090941a2461c32f3c37a0a\\u0026sha256=0efdd3eae59bb992323cabccb9a40dd58cd856eb374763d44b1c36ee26843c95\\u0026imageView2/format/webp=\",\"mini_game_ui_type\":0,\"background_url\":\"\",\"product_url\":\"\"},\"action_button\":{\"base\":{\"action_title\":{\"first_title\":\"了解详情\",\"second_title\":\"\",\"first_icon_url\":\"\",\"second_icon_url\":\"\"},\"delay_highlight_interval\":0,\"highlight_color\":\"\",\"bg_color\":\"\",\"highlight_bg_color\":\"\",\"text_color\":\"\"},\"display_none\":false,\"action_type\":2},\"video_control\":{\"muted\":true},\"split_control_info\":null,\"enable_fullscreen_click\":true,\"click_hot_area_list\":[]},\"material\":{\"type\":1,\"image\":{\"url\":\"https://pgdt.gtimg.cn/141/20204/snscosdownload/SZ/reserved/6778df220005ff1918750963566654150000008d00004eec?m=5642b50fa1734e69b8e32854470e7358\\u0026ck=5642b50fa1734e69b8e32854470e7358\\u0026sha256=2487dbc3fbfbf73e334e9115222884924f2bee83750cf167203a7c9a4bc6f8ba\\u0026imageView2/format/webp=\",\"file_size\":\"0\",\"width\":640,\"height\":360}},\"cover_picture\":null},\"video_resolution\":null,\"progress_preview\":null},\"ad_scene\":4,\"strategy_ids\":[\"10119966\",\"11886415\",\"10901466\",\"10901182\",\"11293246\",\"12673435\"],\"extra_info\":{\"net_log_id\":\"\",\"ad_request_id\":\"153b7b60-ea6c-4dce-ac42-06dd174d9c95\"}}",
+    "lcAdCookie": "[\"o_minduid=dFdzoQaLlIZIQd2_Gr41gck9Juqf5-ZJ; Domain=.l.qq.com; Path=/; HttpOnly; Expires=Thu, 31 Dec 2037 16:00:00 GMT\",\"appuser=93DDC16039BAB5A4; Domain=.l.qq.com; Path=/; HttpOnly; Expires=Thu, 31 Dec 2037 16:00:00 GMT\",\"LZTturn=890; Domain=.l.qq.com; Path=/; HttpOnly; Expires=Thu, 03 Apr 2025 06:38:37 GMT\"]"
+}
+sspAdParam ---->  字母Y 和广告
+经过判断大概率为弹出的广告
+================================================================
+{
+    "errCode": 0,
+    "lcAdCookie": "[\"o_minduid=dFdzoQaLlIZIQd2_Gr41gck9Juqf5-ZJ; Domain=.l.qq.com; Path=/; HttpOnly; Expires=Thu, 31 Dec 2037 16:00:00 GMT\",\"appuser=93DDC16039BAB5A4; Domain=.l.qq.com; Path=/; HttpOnly; Expires=Thu, 31 Dec 2037 16:00:00 GMT\",\"LZCturn=725; Domain=.l.qq.com; Path=/; HttpOnly; Expires=Thu, 03 Apr 2025 06:36:46 GMT\",\"LPSJturn=911; Domain=.l.qq.com; Path=/; HttpOnly; Expires=Thu, 03 Apr 2025 06:36:46 GMT\",\"LBSturn=357; Domain=.l.qq.com; Path=/; HttpOnly; Expires=Thu, 03 Apr 2025 06:36:46 GMT\",\"LVINturn=6; Domain=.l.qq.com; Path=/; HttpOnly; Expires=Thu, 03 Apr 2025 06:36:46 GMT\",\"LPHLSturn=510; Domain=.l.qq.com; Path=/; HttpOnly; Expires=Thu, 03 Apr 2025 06:36:46 GMT\",\"LDERturn=778; Domain=.l.qq.com; Path=/; HttpOnly; Expires=Thu, 03 Apr 2025 06:36:46 GMT\"]",
+    "nfjx": "{\"code\":0,\"msg\":\"\",\"auth\":{\"adid\":4001,\"is_vip\":false,\"refresh_id\":\"b578f7041cfe13044c3aa46773e5969a_1743575806\",\"oaid\":23},\"anchor_ads\":[{\"ad_type\":10,\"point\":{\"id\":\"3\",\"begin\":\"0\",\"end\":\"8000\",\"type\":1,\"is_whole_scene\":false,\"mid_type\":0,\"time_offset\":\"0\",\"conflict_interval\":0,\"zcindex\":0},\"empty\":[],\"mid\":[],\"creative_mid\":[],\"hls_mid\":[{\"order\":{\"ad_type\":10,\"order_id\":\"34627483503\",\"report\":{\"1\":{\"report_list\":[{\"report_begin\":0,\"report_end\":8000,\"report_urls\":[\"https://livep.l.qq.com/livemsg?oid=34627483503\\u0026cid=34582837152\\u0026ping_data=EAAoAUAcWhA5M0REQzE2MDM5QkFCNUE0_viewid_kXQYH8gRW7RYF4azScaZNRS41npu8MhS_bjYYOQDCeI2MOHoemgwsFV5H4f09UHQ9tTWe!_bAUcFcxPctO36ADXqoxX3BsrE3jHcD7ZhxWbHM4AxIKNDldXWDqmOrkKZBNet3chbU5fQd2bGBk2FW!_EJc0Smo857qf8uAv77QBo1LtX1vprvyJfX1_KBk_Ywu3N79iQ6XbFFYvz7RHQv40SvjP2a5EBY96Qwoz105Hg9adaJmhBzJzfhNj3IGLujeZuVZjUD7U\\u0026adtype=PHLS\\u0026appversion=0\\u0026contract=1\\u0026i=1\\u0026os=3\\u0026datatype=jsonp\\u0026etype=1001\\u0026ch=0\\u0026seq=1\\u0026aseq=1\\u0026tailroll=1\\u0026xp=3\\u0026np=1\\u0026reporttime=0\\u0026conn_type=__NET_STATUS__\\u0026tl=1\"],\"api_urls\":[],\"sdk_urls\":[],\"header_info\":\"\",\"max_report_cycles\":0}],\"reporter_dict\":{}},\"2\":{\"report_list\":[{\"report_begin\":0,\"report_end\":8000,\"report_urls\":[],\"api_urls\":[\"https://tytx.m.cn.miaozhen.com/x/k=2450093\\u0026p=8ppTQ\\u0026dx=__IPDX__\\u0026rt=2\\u0026pro=s\\u0026ns=113.249.235.77\\u0026ni=PUB_h2IylXNmertDkU4\\u0026v=__LOC__\\u0026xa=__ADPLATFORM__\\u0026tr=grqlak4czle5c05\\u0026vg=__AUTOPLAY__\\u0026nh=__AUTOREFRESH__\\u0026mo=2\\u0026m0=__OPENUDID__\\u0026m0a=__DUID__\\u0026m1=__ANDROIDID1__\\u0026m1a=__ANDROIDID__\\u0026m2=__IMEI__\\u0026m4=__AAID__\\u0026m5=__IDFA__\\u0026m6=__MAC1__\\u0026m6a=__MAC__\\u0026m11=__OAID__\\u0026m14=__CAID__\\u0026m5a=__IDFV__\\u0026mn=__ANAME__\\u0026m5b=__IDFA1__\\u0026m11a=__OAID1__\\u0026m14a=__CAID1__\\u0026nd=__DRA__\\u0026np=__POS__\\u0026nn=__APP__\\u0026nc=s0028ihs17m\\u0026nf=__FLL__\\u0026ne=__SLL__\\u0026ng=__CTREF__\\u0026nvn=__VNAME__\\u0026nl=__SCENEID__\\u0026txp=c921fa7b63bc17dc120d158af169\\u0026nx=cm1iMGhWTTJWRVZ6SmlNekUzTkRNMU56VTJPVFklM0Q=\\u0026pgsp=SPR250325438380-0\\u0026gc=__GCID__\\u0026imp_time=__IMP_TIME__\\u0026o=\"],\"sdk_urls\":[],\"header_info\":\"\",\"max_report_cycles\":0},{\"report_begin\":0,\"report_end\":8000,\"report_urls\":[],\"api_urls\":[\"https://tytx.m.cn.miaozhen.com/x/k=2451373\\u0026p=8ppKY\\u0026dx=__IPDX__\\u0026rt=2\\u0026pro=s\\u0026ns=113.249.235.77\\u0026ni=PUB_h2IylXNmertDkU4\\u0026v=__LOC__\\u0026xa=__ADPLATFORM__\\u0026tr=grqlak4czle5c05\\u0026vg=__AUTOPLAY__\\u0026nh=__AUTOREFRESH__\\u0026mo=2\\u0026m0=__OPENUDID__\\u0026m0a=__DUID__\\u0026m1=__ANDROIDID1__\\u0026m1a=__ANDROIDID__\\u0026m2=__IMEI__\\u0026m4=__AAID__\\u0026m5=__IDFA__\\u0026m6=__MAC1__\\u0026m6a=__MAC__\\u0026m11=__OAID__\\u0026m14=__CAID__\\u0026m5a=__IDFV__\\u0026mn=__ANAME__\\u0026m5b=__IDFA1__\\u0026m11a=__OAID1__\\u0026m14a=__CAID1__\\u0026nd=__DRA__\\u0026np=__POS__\\u0026nn=__APP__\\u0026nc=s0028ihs17m\\u0026nf=__FLL__\\u0026ne=__SLL__\\u0026ng=__CTREF__\\u0026nvn=__VNAME__\\u0026nl=__SCENEID__\\u0026txp=c921fa7b63bc17dc120d158af169\\u0026nx=cm1iMGhWTTJWRVZ6SmlNekUzTkRNMU56VTJPVFklM0Q=\\u0026pgsp=SPR250325437383-0\\u0026gc=__GCID__\\u0026imp_time=__IMP_TIME__\\u0026o=\"],\"sdk_urls\":[],\"header_info\":\"\",\"max_report_cycles\":0},{\"report_begin\":0,\"report_end\":8000,\"report_urls\":[],\"api_urls\":[\"https://v2.reachmax.cn/count/run.php?var=YT1vSHdEVHZWVUJyJmJjPW9IVTNlRFcyYjMmY2lkPTM0Mzg2ODMzJmNwaWQ9MjU1NDk1JmlwPTExMy4yNDkuMjM1Ljc3Jmw9NDkzNDUyNSZtZWlkPTI1NTk2NzIxJm11aWQ9QVFFQnpKRG9iY0Z6TDNZVVBnamZ5VmZ0QU5wcnY5NDRYVEJ2JnAwPTI5JnBsYXQ9MSZwdWI9NiZyMnY9cyZybXNpZ249MnQwbXZzS3ZwTUZ3blNBWlJ0ZVE3biZybXQ9MTgmcnQ9MTc0MzU3NTY5NiZzPTEmc19sPTQ5MzQ1MjUmdD1zJnZlcj0w\"],\"sdk_urls\":[],\"header_info\":\"\",\"max_report_cycles\":0}],\"reporter_dict\":{}},\"5\":{\"report_list\":[{\"report_begin\":0,\"report_end\":0,\"report_urls\":[\"https://t.gdt.qq.com/conv/src/61/conv?client=61\\u0026product_id=\\u0026cuser=src\\u0026click_id=grqlak4czle5c05\\u0026actionid=__ACTION_ID__\"],\"api_urls\":[],\"sdk_urls\":[],\"header_info\":\"\",\"max_report_cycles\":5}],\"reporter_dict\":{}},\"7\":{\"report_list\":[{\"report_begin\":0,\"report_end\":0,\"report_urls\":[\"https://tytx.m.cn.miaozhen.com/r/k=2450093\\u0026p=8ppTQ\\u0026dx=__IPDX__\\u0026rt=2\\u0026pro=s\\u0026ns=113.249.235.77\\u0026ni=PUB_h2IylXNmertDkU4\\u0026v=__LOC__\\u0026xa=__ADPLATFORM__\\u0026tr=grqlak4czle5c05\\u0026mo=2\\u0026m0=__OPENUDID__\\u0026m0a=__DUID__\\u0026m1=__ANDROIDID1__\\u0026m1a=__ANDROIDID__\\u0026m2=__IMEI__\\u0026m4=__AAID__\\u0026m5=__IDFA__\\u0026m6=__MAC1__\\u0026m6a=__MAC__\\u0026m11=__OAID__\\u0026m14=__CAID__\\u0026m5a=__IDFV__\\u0026mn=__ANAME__\\u0026m5b=__IDFA1__\\u0026m11a=__OAID1__\\u0026m14a=__CAID1__\\u0026nd=__DRA__\\u0026np=__POS__\\u0026nn=__APP__\\u0026nc=s0028ihs17m\\u0026nf=__FLL__\\u0026ne=__SLL__\\u0026nvn=__VNAME__\\u0026nl=__SCENEID__\\u0026txp=c921fa7b63bc17dc120d158af169\\u0026nx=cm1iMGhWTTJWRVZ6SmlNekUzTkRNMU56VTJPVFklM0Q=\\u0026pgsp=SPR250325438380-0\\u0026clk_time=__CLK_TIME__\\u0026gc=__GCID__\\u0026o=\"],\"api_urls\":[],\"sdk_urls\":[],\"header_info\":\"\",\"max_report_cycles\":5},{\"report_begin\":0,\"report_end\":0,\"report_urls\":[\"https://tytx.m.cn.miaozhen.com/r/k=2451373\\u0026p=8ppKY\\u0026dx=__IPDX__\\u0026rt=2\\u0026pro=s\\u0026ns=113.249.235.77\\u0026ni=PUB_h2IylXNmertDkU4\\u0026v=__LOC__\\u0026xa=__ADPLATFORM__\\u0026tr=grqlak4czle5c05\\u0026mo=2\\u0026m0=__OPENUDID__\\u0026m0a=__DUID__\\u0026m1=__ANDROIDID1__\\u0026m1a=__ANDROIDID__\\u0026m2=__IMEI__\\u0026m4=__AAID__\\u0026m5=__IDFA__\\u0026m6=__MAC1__\\u0026m6a=__MAC__\\u0026m11=__OAID__\\u0026m14=__CAID__\\u0026m5a=__IDFV__\\u0026mn=__ANAME__\\u0026m5b=__IDFA1__\\u0026m11a=__OAID1__\\u0026m14a=__CAID1__\\u0026nd=__DRA__\\u0026np=__POS__\\u0026nn=__APP__\\u0026nc=s0028ihs17m\\u0026nf=__FLL__\\u0026ne=__SLL__\\u0026nvn=__VNAME__\\u0026nl=__SCENEID__\\u0026txp=c921fa7b63bc17dc120d158af169\\u0026nx=cm1iMGhWTTJWRVZ6SmlNekUzTkRNMU56VTJPVFklM0Q=\\u0026pgsp=SPR250325437383-0\\u0026clk_time=__CLK_TIME__\\u0026gc=__GCID__\\u0026o=\"],\"api_urls\":[],\"sdk_urls\":[],\"header_info\":\"\",\"max_report_cycles\":5},{\"report_begin\":0,\"report_end\":0,\"report_urls\":[\"https://v2.reachmax.cn/click/run.php?var=YT1vSHdEVHZWVUJyJmJjPW9IVTNlRFcyYjMmY2lkPTM0Mzg2ODMzJmNwaWQ9MjU1NDk1JmlwPTExMy4yNDkuMjM1Ljc3Jmw9NDkzNDUyNSZtZWlkPTI1NTk2NzIxJm11aWQ9QVFFQnpKRG9iY0Z6TDNZVVBnamZ5VmZ0QU5wcnY5NDRYVEJ2JnAwPTI5JnBsYXQ9MSZwdWI9NiZyMnY9cyZybXNpZ249MnQwbXZzS3ZwTUZ3blNBWlJ0ZVE3biZybXQ9MTgmcnQ9MTc0MzU3NTY5NiZzPTEmc19sPTQ5MzQ1MjUmdD1zJnZlcj0w\"],\"api_urls\":[],\"sdk_urls\":[],\"header_info\":\"\",\"max_report_cycles\":5}],\"reporter_dict\":{}},\"10\":{\"report_list\":[],\"reporter_dict\":{}}},\"ad_action\":{\"type\":1,\"click\":{\"link\":\"https://c.l.qq.com/click?oid=34627483503\\u0026cid=34582837152\\u0026click_data=EAAoAUAcWhA5M0REQzE2MDM5QkFCNUE0_viewid_kXQYH8gRW7RYF4azScaZNRS41npu8MhS_bjYYOQDCeI2MOHoemgwsFV5H4f09UHQ9tTWe!_bAUcFcxPctO36ADXqoxX3BsrE3jHcD7ZhxWbHM4AxIKNDldXWDqmOrkKZBNet3chbU5fQd2bGBk2FW!_EJc0Smo857qf8uAv77QBo1LtX1vprvyJfX1_KBk_Ywu3N79iQ6XbFFYvz7RHQv40SvjP2a5EBY96Qwoz105Hg9adaJmhBzJzfhNj3IGLujeZuVZjUD7U\\u0026adtype=PHLS\\u0026appversion=0\\u0026contract=1\\u0026jtype=0\\u0026ld64=aHR0cHM6Ly9jY2MteC5qZC5jb20vZHNwL3RwP2xvZz1ZZnlwMktzZnM1cmtHNkRkRzJRU0ZPTmtiaGx5WUVERXMwbTNLNU1SVWhqbHNIWGM0SXYtOUdlc1hCM2FxRVhiX1gxbVZpUUcydTVMRWR1RHljV05oUSZ2PTcwOCZ0bz1odHRwcyUzQSUyRiUyRnByby5tLmpkLmNvbSUyRm1hbGwlMkZhY3RpdmUlMkYySDJlRlp1SHI4ckFWdEsxSDF0YmJudnVuVGpHJTJGaW5kZXguaHRtbCUzRmJhYmVsQ2hhbm5lbCUzRHR0dDImYWR0PTkmbW9iaWxldHlwZT1fX01PQklMRVRZUEVfXyZkaWRtZDU9X19JTUVJX18maWRmYW1kNT1fX0lERkFNRDVfXyZpZGZhPV9fSURGQV9fJmFpZD1fX0FORFJPSURJRF9fJm9haWQ9X19PQUlEX18mb2FpZG1kNT1fX09BSUQxX18mY2FpZD1fX0NBSURfXyZtcmVxaWQ9X19SRVFVRVNUX0lEX18_e227\\u0026i=1\\u0026os=3\\u0026s_lp=101\\u0026acttype=1014\\u0026ch=0\\u0026seq=1\\u0026aseq=1\\u0026rt=2\\u0026s=%7B%22da%22%3A%22__WIDTH__%22%2C%22db%22%3A%22__HEIGHT__%22%2C%22down_x%22%3A%22-999%22%2C%22down_y%22%3A%22-999%22%2C%22up_x%22%3A%22-999%22%2C%22up_y%22%3A%22-999%22%7D\\u0026clklpp=__CLICK_LPP__\\u0026xp=3\\u0026np=1\\u0026conn_type=__NET_STATUS__\\u0026vto=__VIDEO_PLAY_TIME__\\u0026device_os_type=windows\\u0026dynamic_creative_id=0\\u0026video_component_ids=0\\u0026smart_delivery_template_aid=0\\u0026smart_delivery_template_dc_id=0\\u0026tl=1\",\"is_diff_click_area\":false,\"url\":\"https://ccc-x.jd.com/dsp/tp?log=Yfyp2Ksfs5rkG6DdG2QSFONkbhlyYEDEs0m3K5MRUhjlsHXc4Iv-9GesXB3aqEXb_X1mViQG2u5LEduDycWNhQ\\u0026v=708\\u0026to=https%3A%2F%2Fpro.m.jd.com%2Fmall%2Factive%2F2H2eFZuHr8rAVtK1H1tbbnvunTjG%2Findex.html%3FbabelChannel%3Dttt2\\u0026adt=9\\u0026mobiletype=__MOBILETYPE__\\u0026didmd5=__IMEI__\\u0026idfamd5=__IDFAMD5__\\u0026idfa=__IDFA__\\u0026aid=__ANDROIDID__\\u0026oaid=__OAID__\\u0026oaidmd5=__OAID1__\\u0026caid=__CAID__\\u0026mreqid=grqlak4czle5c\",\"landing_page_popup_url\":\"\",\"enable_terminal_inside_open_mini_game\":false,\"landing_page_type\":0,\"mini_program_info\":{\"appid\":\"\",\"path\":\"\",\"url_scheme\":\"\",\"show_popup\":false,\"auto_close_ms\":0},\"only_report_click\":false}},\"vr_report_dict\":{\"7\":{\"report_dict\":{\"ad_action_type\":\"1\",\"ad_duration\":\"8000\",\"ad_group_id\":\"34627483503\",\"ad_is_bidding\":\"0\",\"ad_is_empty\":\"0\",\"ad_play_source\":\"1\",\"ad_playmode\":\"25\",\"ad_post_idx\":\"5\",\"ad_reportkey_fst\":\"9\",\"ad_reportkey_scd\":\"20\",\"ad_request_id\":\"grqlak4czle5c\",\"ad_show_type\":\"41\",\"business\":\"ad\",\"is_trueview\":\"0\",\"trace_id\":\"grqlak4czle5c05\",\"whole_ad_type\":\"0\"}}},\"trace_id\":\"grqlak4czle5c05\",\"pos_id\":\"6001408402464595\",\"product_type\":\"1000\",\"ad_frequency_control_info_list\":{},\"ad_frequency_control\":\"{}\"},\"poster\":{\"click_hot_area\":{\"height_rate\":0.083333,\"margin_bottom_rate\":0.12963,\"margin_left_rate\":0.171875,\"margin_right_rate\":0.171875}},\"material\":{\"type\":2,\"video\":{\"url\":\"https://apd-vlive.apdcdn.tc.qq.com/vmind.qqvideo.tc.qq.com/AEOTS1ZiW0hcoeCGGHqymo1LUVTdzQafi5pZLT_CWW2w/svp_50134/gzc_1000127_0b53wibdaaacuyagiz7i65t5jmwdgc2qen2a.f2.mp4?vkey=2F50096D2606F6161B863422BA531AC428BB13FE516E0630AE2CAF677469CF2053A9C9E6FC305909B0AFB542EE65BA2772576EF5D22D78D18026C248C117BF68DB867E5E4EDE399F7A104EBBA26496A2AC1E3190DCD40B39\\u0026platform=10201\\u0026sdtfrom=v1046\\u0026fmt=hd\\u0026level=0\",\"vid\":\"t409352bzmj\",\"file_size\":\"209021\",\"duration\":\"8000\",\"is_transparent\":false,\"enable_crt_cached\":true,\"width\":1920,\"height\":1080,\"hevc\":\"\"}}}],\"corner\":[],\"live_corner\":[],\"video_in\":[],\"watch_buy\":[],\"anchor_empty\":[],\"non_standard\":[],\"continued_ad\":null,\"reward_bubble\":null},{\"ad_type\":15,\"point\":{\"id\":\"\",\"begin\":\"8661000\",\"end\":\"0\",\"type\":1,\"is_whole_scene\":false,\"mid_type\":0,\"time_offset\":\"0\",\"conflict_interval\":0,\"zcindex\":0},\"empty\":[],\"mid\":[],\"creative_mid\":[],\"hls_mid\":[],\"corner\":[],\"live_corner\":[],\"video_in\":[],\"watch_buy\":[],\"anchor_empty\":[{\"order\":{\"ad_type\":15,\"order_id\":\"1\",\"report\":{\"1\":{\"report_list\":[{\"report_begin\":0,\"report_end\":0,\"report_urls\":[\"https://rpt.gdt.qq.com/livemsg?ping_data=EAEYWiABKABAHA_viewid_Ufr!D2xB_im3NXbD9Fs0dzzajsjjAhsoX!NV77RLSnIm_Bw2tFlNUQ\\u0026adtype=DER\\u0026appversion=0\\u0026select_ad_type=__SELECT_AD_TYPE__\\u0026dertime=__TIME_OFFSET__\\u0026video_start_time=__START_TIME__\"],\"api_urls\":[],\"sdk_urls\":[],\"header_info\":\"\",\"max_report_cycles\":5}],\"reporter_dict\":{}}},\"ad_action\":null,\"vr_report_dict\":{\"7\":{\"report_dict\":{\"ad_action_type\":\"0\",\"ad_duration\":\"\",\"ad_group_id\":\"1\",\"ad_is_bidding\":\"1\",\"ad_is_empty\":\"1\",\"ad_play_source\":\"1\",\"ad_playmode\":\"25\",\"ad_post_idx\":\"6\",\"ad_reportkey_fst\":\"0\",\"ad_reportkey_scd\":\"0\",\"ad_request_id\":\"grqlak4czle5c\",\"ad_show_type\":\"0\",\"business\":\"ad\",\"is_trueview\":\"0\",\"trace_id\":\"\",\"whole_ad_type\":\"0\"}}},\"trace_id\":\"\",\"pos_id\":\"\",\"product_type\":\"\",\"ad_frequency_control_info_list\":{},\"ad_frequency_control\":\"\"}}],\"non_standard\":[],\"continued_ad\":null,\"reward_bubble\":null},{\"ad_type\":8,\"point\":{\"id\":\"\",\"begin\":\"0\",\"end\":\"0\",\"type\":0,\"is_whole_scene\":false,\"mid_type\":3,\"time_offset\":\"0\",\"conflict_interval\":0,\"zcindex\":0},\"empty\":[],\"mid\":[],\"creative_mid\":[],\"hls_mid\":[],\"corner\":[],\"live_corner\":[],\"video_in\":[],\"watch_buy\":[],\"anchor_empty\":[],\"non_standard\":[],\"continued_ad\":null,\"reward_bubble\":null},{\"ad_type\":18,\"point\":null,\"empty\":[],\"mid\":[],\"creative_mid\":[],\"hls_mid\":[],\"corner\":[],\"live_corner\":[],\"video_in\":[],\"watch_buy\":[],\"anchor_empty\":[],\"non_standard\":[],\"continued_ad\":{\"enable\":false,\"display_time\":0,\"location\":2,\"rotate_speed\":0,\"qrcode\":\"\",\"landing_page_type\":2},\"reward_bubble\":null}],\"ad_scene\":3,\"strategy_ids\":[\"10119966\",\"11886415\",\"10901466\",\"10901182\",\"11293246\",\"12673435\"],\"extra_info\":{\"net_log_id\":\"\",\"ad_request_id\":\"01fbbfdb-c0ec-472c-a5f6-e306a7d30ae2\"}}"
+}
+
+sspAdParam  ----> 动态加载  广告
+经过判断大概率为动态图加载部分
+================================================================
+{
+    "errCode": 0,
+    "lcAdCookie": "[\"o_minduid=dFdzoQaLlIZIQd2_Gr41gck9Juqf5-ZJ; Domain=.l.qq.com; Path=/; HttpOnly; Expires=Thu, 31 Dec 2037 16:00:00 GMT\",\"appuser=93DDC16039BAB5A4; Domain=.l.qq.com; Path=/; HttpOnly; Expires=Thu, 31 Dec 2037 16:00:00 GMT\",\"LPDFturn=531; Domain=.l.qq.com; Path=/; HttpOnly; Expires=Thu, 03 Apr 2025 06:39:30 GMT\"]",
+    "lobb": "{\"code\":0,\"msg\":\"\",\"auth\":{\"adid\":4001,\"is_vip\":false,\"refresh_id\":\"256438cc6ab4f8819e9808304680df24_1743575970\",\"oaid\":23},\"ad\":{\"ad_type\":7,\"empty\":{\"order\":{\"ad_type\":7,\"order_id\":\"1\",\"report\":{\"1\":{\"report_list\":[{\"report_begin\":0,\"report_end\":0,\"report_urls\":[\"https://rpt.gdt.qq.com/livemsg?ping_data=EAEYWiABKABAHA_viewid_t6ta3G9Pf8ermlMwqzwzIYWPjDowrdjOErS!T_STRDFGl4Ipx2Zwcw\\u0026adtype=PDF\\u0026appversion=0\\u0026select_ad_type=__SELECT_AD_TYPE__\",\"https://rpt.gdt.qq.com/livemsg?ping_data=EAEYWiABKABAHA_viewid_t6ta3G9Pf8ermlMwqzwzIYWPjDowrdjOErS!T_STRDFGl4Ipx2Zwcw\\u0026adtype=PDF\\u0026appversion=0\\u0026select_ad_type=__SELECT_AD_TYPE__\"],\"api_urls\":[],\"sdk_urls\":[],\"header_info\":\"\",\"max_report_cycles\":5}],\"reporter_dict\":{}},\"2\":{\"report_list\":[],\"reporter_dict\":{}},\"3\":{\"report_list\":[],\"reporter_dict\":{}},\"5\":{\"report_list\":[{\"report_begin\":0,\"report_end\":0,\"report_urls\":[\"\"],\"api_urls\":[],\"sdk_urls\":[],\"header_info\":\"\",\"max_report_cycles\":5}],\"reporter_dict\":{}},\"7\":{\"report_list\":[],\"reporter_dict\":{}},\"10\":{\"report_list\":[],\"reporter_dict\":{}}},\"ad_action\":{\"type\":1,\"click\":{\"link\":\"\",\"is_diff_click_area\":true,\"url\":\"\",\"landing_page_popup_url\":\"\",\"enable_terminal_inside_open_mini_game\":false,\"landing_page_type\":0,\"mini_program_info\":{\"appid\":\"\",\"path\":\"\",\"url_scheme\":\"\",\"show_popup\":false,\"auto_close_ms\":0},\"only_report_click\":false}},\"vr_report_dict\":{\"7\":{\"report_dict\":{\"ad_action_type\":\"0\",\"ad_duration\":\"\",\"ad_group_id\":\"1\",\"ad_is_bidding\":\"1\",\"ad_is_empty\":\"1\",\"ad_play_source\":\"1\",\"ad_playmode\":\"25\",\"ad_post_idx\":\"0\",\"ad_reportkey_fst\":\"11\",\"ad_reportkey_scd\":\"22\",\"ad_request_id\":\"biyl2lt2uwr6c\",\"ad_show_type\":\"0\",\"business\":\"ad\",\"is_trueview\":\"0\",\"trace_id\":\"\",\"whole_ad_type\":\"0\"}}},\"trace_id\":\"\",\"pos_id\":\"\",\"product_type\":\"\",\"ad_frequency_control_info_list\":{},\"ad_frequency_control\":\"\",\"ad_context\":\"\"}},\"pause\":null,\"video_resolution\":null,\"progress_preview\":null},\"ad_scene\":6,\"strategy_ids\":[\"10901466\",\"10901182\",\"11293246\",\"12673435\",\"10119966\",\"11886415\"],\"extra_info\":{\"net_log_id\":\"\",\"ad_request_id\":\"1fff52d4-21ab-448c-90a3-9925f6651e03\"}}"
+}
+经过判断大概率为上面一样功能
+================================================================
+curl 'https://h5vv6.video.qq.com/getvinfo?charge=0&otype=json&defnpayver=0&spau=1&spaudio=1&spwm=0&sphls=2&host=v.qq.com&refer=https%3A%2F%2Fv.qq.com%2Fx%2Fcover%2Fvx28eacrd1aar2k%2Fs0028ihs17m.html&ehost=https%3A%2F%2Fv.qq.com%2Fx%2Fcover%2Fvx28eacrd1aar2k%2Fs0028ihs17m.html&sphttps=1&encryptVer=8.5&cKey=--01FF6C92F9845E168414165C88006D65B6C382E14CF7DF85B79CF8ACCBD50CBFD05E4A271663C1981070C6A9B9770F6A8C63C53771F3C05AE2D9B25FC6539E3E8ECC5A3230277A8253C70842DE86728E780E2DA1C2C0B37F4F81CE237236DC6B67BF0F55DF1BE691C22216BA73224709D88DAFABDCD6FE44952B7B9854F9508115E9EE7FC349E6566B171149334E3CB46DEE32787FF59EBB8AD11CF9DE365AC385C75C12EABD8A74975B446741778B59FD8DBE74458C96E533379701EAEF7EA6F0630555B13D12FEC624325590E2D779AE1BF823767655F8F0B2062B6C4C635C12F20FB02CD7924DFB77DA64637FE97D0D&clip=4&guid=f929b6a62256af44&flowid=cdfb291a60380971a47b673a7518bdab&platform=10201&sdtfrom=v1010&appVer=1.40.3&unid=&auth_from=&auth_ext=&vid=l3836gfebnn&defn=&fhdswitch=0&dtype=3&spsrt=2&tm=1743579023&lang_code=0&logintoken=&qimei=fac37627d6c63d15b44c3c37300012e18312&drm=40&callback=getinfo_callback_670939' \
+  -H 'Accept: */*' \
+  -H 'Accept-Language: zh-CN,zh;q=0.9,en;q=0.8,en-US;q=0.7' \
+  -H 'Cache-Control: no-cache' \
+  -H 'Connection: keep-alive' \
+  -b 'RK=R391v4Z3NZ; ptcz=974167d978770fd2c4e8e422a8f5c74fc09917999fb5789088c8b405baac66c8; _qimei_uuid42=1910309122a100898a17759f7df11436c7ae543bf4; _qimei_fingerprint=75059786da94cf42e0e18205aaec1fcf; _qimei_h38=2db8fb138a17759f7df1143602000007519103; video_guid=f929b6a62256af44; qq_domain_video_guid_verify=f929b6a62256af44; video_platform=2; wap_wx_openid=o_lAF57bpb_tyz4q1zRtS2lM7Tss; wap_wx_appid=wx0b6d22ad9f2c4fa0; logintype=1; wap_refresh_token=87_U9M1AcLo5OpQ8YeMXkwlzW_47-UbEoORI_2WWGcwwqYy2MS7pdcvDJGOTKkS1aYSvsIMNjyFZ3Of4-HF6O26_vwPdq_yHkxpvlqBayMxiYg; wap_encrypt_logininfo=ASuZHXPxJsxaHE13GyDl4zI7DK0Wc6tnOd7LZ5IZS1lyMFIJ%2B8UggHICyW5i4RdaR7geynKP5S%2BMWKZ4KqGL1y3l3hqeCjxlJPUWcLMeUiiG; backup_logintype=1; pac_uid=8QIf3nxc6YAbuD/b7gs=; suid=user_8QIf3nxc6YAbuD%2Fb7gs%3D; pgv_pvid=7331608848; _qimei_q32=43ef7b49a9df2ec8e0354aaef880171c; _qimei_q36=fac37627d6c63d15b44c3c37300012e18312; wap_wx_access_token=88_lj7Co72M7r-cLM3-44xpMYoVGHi1h8zBDel9uG0-OOLGD_UNj8qzvaT3zNaH9_b2iNJDeKhGQstxjS_GHVGHKK8OuyjJ4OMrDqioCwcemVo; news_token=EoABkX8pUr73d4cf7MDxKxlpQ9ZZx4oiqW8Nk9OPtqBiAmUW5sXGfGKlHj2LiN0z9LU-q2awRU0oe2EBiK8Bgq1Bi_JZnzRUp5MG8p-FdcCwF6GQOut_rIhsCDTSgnWMoG4helMq_K-Az6aylKyG7hJRqRUljzLqZKCBy39qMK0mGJogEQ; backup_news_token=EoABkX8pUr73d4cf7MDxKxlpQ9ZZx4oiqW8Nk9OPtqBiAmUW5sXGfGKlHj2LiN0z9LU-q2awRU0oe2EBiK8Bgq1Bi_JZnzRUp5MG8p-FdcCwF6GQOut_rIhsCDTSgnWMoG4helMq_K-Az6aylKyG7hJRqRUljzLqZKCBy39qMK0mGJogEQ; QIMEI32=43ef7b49a9df2ec8e0354aaef880171c; vversion_name=8.2.95; video_omgid=f929b6a62256af44; pgv_info=ssid=s7551652382; main_login=phone; appid=phzJM3GWNjVa; vuserid=3449288184; phone_nick=%E7%94%A8%E6%88%B72259; phone_head=http%3A%2F%2Fi.gtimg.cn%2Fqqlive%2Fimages%2F20180516%2Ficon120.png; openid=199961645c32546e245e2c17752292be; qz_gdt=nxn6yz26aeabcxl7yi7q; vusession=AjaAErKu3pqcG6OOd6cdFYR7B-ieINbCBznUKhkvYEB2JbtybyTx_1sKic8UfE5ecQ.M; login_time_init=1743577935; next_refresh_time=6131; login_time_last=2025-4-2 15:12:16' \
+  -H 'Pragma: no-cache' \
+  -H 'Referer: https://v.qq.com/' \
+  -H 'Sec-Fetch-Dest: script' \
+  -H 'Sec-Fetch-Mode: no-cors' \
+  -H 'Sec-Fetch-Site: same-site' \
+  -H 'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36' \
+  -H 'sec-ch-ua: "Chromium";v="134", "Not:A-Brand";v="24", "Google Chrome";v="134"' \
+  -H 'sec-ch-ua-mobile: ?0' \
+  -H 'sec-ch-ua-platform: "Windows"'
+
+https://h5vv6.video.qq.com/getvinfo?  拥有m3u8的接口
+
+================================================================
+curl 'https://vd6.l.qq.com/proxyhttp' \
+  -H 'accept: */*' \
+  -H 'accept-language: zh-CN,zh;q=0.9,en;q=0.8,en-US;q=0.7' \
+  -H 'cache-control: no-cache' \
+  -H 'content-type: text/plain;charset=UTF-8' \
+  -b 'RK=R391v4Z3NZ; ptcz=974167d978770fd2c4e8e422a8f5c74fc09917999fb5789088c8b405baac66c8; _qimei_uuid42=1910309122a100898a17759f7df11436c7ae543bf4; _qimei_fingerprint=75059786da94cf42e0e18205aaec1fcf; _qimei_h38=2db8fb138a17759f7df1143602000007519103; qq_domain_video_guid_verify=f929b6a62256af44; wap_wx_openid=o_lAF57bpb_tyz4q1zRtS2lM7Tss; wap_wx_appid=wx0b6d22ad9f2c4fa0; logintype=1; wap_refresh_token=87_U9M1AcLo5OpQ8YeMXkwlzW_47-UbEoORI_2WWGcwwqYy2MS7pdcvDJGOTKkS1aYSvsIMNjyFZ3Of4-HF6O26_vwPdq_yHkxpvlqBayMxiYg; wap_encrypt_logininfo=ASuZHXPxJsxaHE13GyDl4zI7DK0Wc6tnOd7LZ5IZS1lyMFIJ%2B8UggHICyW5i4RdaR7geynKP5S%2BMWKZ4KqGL1y3l3hqeCjxlJPUWcLMeUiiG; backup_logintype=1; appuser=93DDC16039BAB5A4; pac_uid=8QIf3nxc6YAbuD/b7gs=; suid=user_8QIf3nxc6YAbuD%2Fb7gs%3D; pgv_pvid=7331608848; _qimei_q32=43ef7b49a9df2ec8e0354aaef880171c; _qimei_q36=fac37627d6c63d15b44c3c37300012e18312; cm_cookie=V1,110064&Da4Rt0K3qezB&AQEBw4hJsGSnlLXIMoTuC79QWg7X7ZW4YY5A&250106&250106; lv_play_index=58; o_minduid=dFdzoQaLlIZIQd2_Gr41gck9Juqf5-ZJ; wap_wx_access_token=88_lj7Co72M7r-cLM3-44xpMYoVGHi1h8zBDel9uG0-OOLGD_UNj8qzvaT3zNaH9_b2iNJDeKhGQstxjS_GHVGHKK8OuyjJ4OMrDqioCwcemVo; news_token=EoABkX8pUr73d4cf7MDxKxlpQ9ZZx4oiqW8Nk9OPtqBiAmUW5sXGfGKlHj2LiN0z9LU-q2awRU0oe2EBiK8Bgq1Bi_JZnzRUp5MG8p-FdcCwF6GQOut_rIhsCDTSgnWMoG4helMq_K-Az6aylKyG7hJRqRUljzLqZKCBy39qMK0mGJogEQ; backup_news_token=EoABkX8pUr73d4cf7MDxKxlpQ9ZZx4oiqW8Nk9OPtqBiAmUW5sXGfGKlHj2LiN0z9LU-q2awRU0oe2EBiK8Bgq1Bi_JZnzRUp5MG8p-FdcCwF6GQOut_rIhsCDTSgnWMoG4helMq_K-Az6aylKyG7hJRqRUljzLqZKCBy39qMK0mGJogEQ; ad_session_id=zb7atgadpozwk; vversion_name=8.2.95; video_omgid=f929b6a62256af44; pgv_info=ssid=s7551652382; LHTturn=699; Lturn=273; LKBturn=593; LPVLturn=380; LPLFturn=421; LPPBturn=388; LPSJturn=911; LBSturn=357; LVINturn=6; LPHLSturn=510; LDERturn=778; LPDFturn=531; qz_gdt=nxn6yz26aeabcxl7yi7q; orderid=34627483503_1743576522; LZCturn=726; LZTturn=892' \
+  -H 'origin: https://v.qq.com' \
+  -H 'pragma: no-cache' \
+  -H 'priority: u=1, i' \
+  -H 'referer: https://v.qq.com/' \
+  -H 'sec-ch-ua: "Chromium";v="134", "Not:A-Brand";v="24", "Google Chrome";v="134"' \
+  -H 'sec-ch-ua-mobile: ?0' \
+  -H 'sec-ch-ua-platform: "Windows"' \
+  -H 'sec-fetch-dest: empty' \
+  -H 'sec-fetch-mode: cors' \
+  -H 'sec-fetch-site: same-site' \
+  -H 'user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36' \
+  --data-raw '{"buid":"onlyvinfo","vinfoparam":"charge=0&otype=ojson&defnpayver=3&spau=1&spaudio=0&spwm=1&sphls=2&host=v.qq.com&refer=https%3A%2F%2Fv.qq.com%2Fx%2Fcover%2Fvx28eacrd1aar2k%2Fs0028ihs17m.html&ehost=https%3A%2F%2Fv.qq.com%2Fx%2Fcover%2Fvx28eacrd1aar2k%2Fs0028ihs17m.html&sphttps=1&encryptVer=9.2&cKey=eFVW2tx3fkW1wM1Orq2-LnCjnpb8Ocr0cPTeKCjyzEul_f4uOWcvUmJNR8Gr77I-NQpbxUUIy2raCp7VHCeQghpmp7rG5tiHjLv_PnnatnPaZeiVw9PU9ozKnL869pbHgl3y_IMI6Zg_FjOj-NmZhE-NjjawCzIdF66cdsFdzz5jk70UOmynTHDptaxqIemxrSlkg-M_BbDaBoWwiX7uSsBkDK_qlv9BvC71Ch6ixh2gniDG5LKtpya6ni-smRnO8tW2RvCpuZZHtWTr2rFp56lxzzDtPFKhwYCtsQcaQ5txIefj4bzawa_zlqD9r8gROIIg1aIy5ZLVSaSl29Zyy7905ICoeOJZY6b_P75Em4nh91t_dS9ayutSG2RbhUh8Huk7fLUZav4pyJMl6qwn__n1ft_L58-76lPZxZ5i2okCi9ufahLJhuGfr0zd5fVDIezv9Xeccs5TQAozpQzZzEAf-6jb4FofGYS7HNnxNIeNBOG1kJ3qWp9iC2OESXMSXEjyMj3kx51qnXJWzi2vKeskL5qvjtTMFeGHRkEqBZ9qU3PbBAQEBAB7NL4&clip=4&guid=f929b6a62256af44&flowid=cdfb291a60380971a47b673a7518bdab&platform=10201&sdtfrom=v1010&appVer=1.40.3&unid=&auth_from=&auth_ext=&vid=s0028ihs17m&defn=hd&fhdswitch=0&dtype=3&spsrt=2&tm=1743578400&lang_code=0&logintoken=%7B%22access_token%22%3A%22%22%2C%22appid%22%3A%22phzJM3GWNjVa%22%2C%22vusession%22%3A%22AjaAErKu3pqcG6OOd6cdFYR7B-ieINbCBznUKhkvYEB2JbtybyTx_1sKic8UfE5ecQ.M%22%2C%22openid%22%3A%22199961645c32546e245e2c17752292be%22%2C%22vuserid%22%3A%223449288184%22%2C%22video_guid%22%3A%22f929b6a62256af44%22%2C%22main_login%22%3A%22phone%22%7D&qimei=fac37627d6c63d15b44c3c37300012e18312&spvvpay=1&spadseg=3&spav1=15&hevclv=28&spsfrhdr=0&spvideo=0&spm3u8tag=67&spmasterm3u8=3&track=undefined&atime=0&drm=40"}'
+
+
+https://vd6.l.qq.com/proxyhttp  拥有所有m3u8的字段
+
+charge=0
+表示视频是否收费。
+0 表示免费，1 表示收费。
+
+otype=ojson
+指定返回数据的格式。
+ojson 表示返回格式为 JSON。
+
+defnpayver=3
+默认支付版本号，可能用于标识支付系统的版本。
+
+spau=1
+可能是某种开关或标志，1 表示启用。
+
+spaudio=0
+音频相关参数，0 表示未启用或默认设置。
+
+spwm=1
+水印相关参数，1 表示启用水印。
+
+sphls=2
+HLS（HTTP Live Streaming）协议相关参数，2 表示启用或特定版本。
+
+host=v.qq.com
+视频的主域名，指向腾讯视频的服务器。
+
+refer=https%3A%2F%2Fv.qq.com%2Fx%2Fcover%2Fvx28eacrd1aar2k%2Fs0028ihs17m.html
+视频来源页面的 URL，经过 URL 编码。
+
+ehost=https%3A%2F%2Fv.qq.com%2Fx%2Fcover%2Fvx28eacrd1aar2k%2Fs0028ihs17m.html
+播放页面的 URL，经过 URL 编码。
+
+sphttps=1
+表示是否使用 HTTPS 协议，1 表示启用。
+
+encryptVer=9.2
+加密版本号，可能用于标识加密算法或协议的版本。
+
+cKey
+加密密钥或签名，用于验证请求的合法性。
+这是一个长字符串，通常用于防止非法访问。
+
+clip=4
+可能表示视频片段的编号或标识。
+
+guid=f929b6a62256af44
+唯一标识符，用于标识设备或会话。
+
+flowid=cdfb291a60380971a47b673a7518bdab
+流 ID，用于标识请求的唯一性。
+
+platform=10201
+平台标识符，可能表示客户端类型（如移动端、PC 端等）。
+
+sdtfrom=v1010
+数据来源标识符，可能用于统计或追踪。
+
+appVer=1.40.3
+应用版本号，表示客户端的版本。
+
+unid=
+用户唯一标识符，可能为空或未设置。
+
+auth_from=
+认证来源，可能为空或未设置。
+
+auth_ext=
+认证扩展信息，可能为空或未设置。
+
+vid=s0028ihs17m
+视频 ID，用于标识具体的视频内容。
+
+defn=hd
+默认清晰度，hd 表示高清。
+
+fhdswitch=0
+高清切换开关，0 表示未启用。
+
+dtype=3
+数据类型，可能表示视频格式或类型。
+
+spsrt=2
+可能是某种排序或优先级参数。
+
+tm=1743578400
+时间戳，表示请求的时间（Unix 时间戳）。
+
+lang_code=0
+语言代码，0 表示默认语言。
+
+logintoken
+登录令牌，包含用户登录信息和身份验证数据。
+
+qimei=fac37627d6c63d15b44c3c37300012e18312
+设备指纹或唯一标识符。
+
+spvvpay=1
+可能是某种支付或验证相关的开关。
+
+spadseg=3
+广告段相关参数，3 表示启用或特定设置。
+
+spav1=15
+可能是某种版本或协议编号。
+
+hevclv=28
+HEVC（高效视频编码）相关参数，28 表示特定编码级别。
+
+spsfrhdr=0
+HDR（高动态范围）相关参数，0 表示未启用。
+
+spvideo=0
+视频相关参数，0 表示默认设置。
+
+spm3u8tag=67
+M3U8 标签相关参数，67 表示特定标签或版本。
+
+spmasterm3u8=3
+主 M3U8 文件相关参数，3 表示启用或特定设置。
+
+track=undefined
+跟踪参数，可能为空或未设置。
+
+atime=0
+可能表示访问时间或偏移量。
+
+drm=40
+数字版权管理（DRM）相关参数，40 表示特定 DRM 系统或版本。
+
+================================================================
+
+截止2025-04-02  :得出分析。可用两种方法下载电影。
+一: 通过请求一个包含所以ts片段的 https://vd6.l.qq.com/proxyhttp ，从中下载整个 .ts 得出mp4(问题：无法找出变化参数。过期时间非常快)
+二: 通过请求m3u8链接。其中主要加密字段为token。解出字段有效量后，可直接将这些拼接好的m3u8链接组成一个列表。  https://ltshwy.gtimg.com/B_3k--xdVBUHYl1q0K2jODe6OdiEXMw7AjjQzWJZNzYOCGMUlYWaXJFGPgWeHhxMd48dCYUOo2Lkog1azq3QhVIDG81ANQrcQVCYxO5if41LEBNWtc1GxUR4It8PoG-vTqjv8aGq7oFyy1kc2UBrBGRw/svp_50112/cH694sHr07kgmucWUacFvSrLbncIpumcVjXbUOlmyxxb3iLVaqqkd-KVUtR2fVnr0fUcH7N9SOl7BvCE1aPbf3REl4plrFRaP0wqM3ARRSmLhfkj5BVOgdEDY8SdO2Z8Gmc0TI711Us0pRtx27hsgC9JrjBuot_jXATxjhdimz3exMUuQPFJtSgArlja171cdL5-YiolLKJra6qX5nU0Cc1oXU4TopJKkawp8xYrmB4/.....(后面为m3u8链接)
+三: 通过请求包含部分m3u8的 https://vd6.l.qq.com/proxyhttp 链接。发起请求可获取几个m3u8链接。(问题：无法找出变化参数。过期时间非常快，且变化过大，难以捕获)
+================================================================
+
+接口功能说明：
+https://pbaccess.video.qq.com/trpc.video_history.interface_server.InterfaceService/AddOrUpdate  ：添加或更新视频播放历史记录
+https://otheve.beacon.qq.com/analytics/v2_upload?appkey=JS0081LY3JY6J3  :上传分析数据.记录用户在视频平台上的各种行为，如页面访问、视频播放、广告点击等
+https://vip.video.qq.com/rpc/trpc.hongji_group.web_message.WebMessageService/GetNewMsgCount?rpc_data={%22vuid%22%3A%203449288184%2C%20%22platform%22%3A%201} 猜测是获取新消息数量
+
+================================================================
+截止2025-04-03  :得出分析。可下面方法下载电影。
+捕获  https://vd6.l.qq.com/proxyhttp  其中整个视频的m3u8里面全在其中。
+特点 :参数函数有 vinfoparam
+
+

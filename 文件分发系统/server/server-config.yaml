@@ -1,0 +1,14 @@
+minio:
+  endpoint: '47.99.52.9:9000'  # MinIO 服务器地址
+  access_key: 'admin'          # 访问密钥
+  secret_key: 'Aa123456.'       # 密钥
+  secure: false                # 是否使用 HTTPS
+
+bucket:
+  name: 'text1'                # 存储桶名称
+
+local:
+  directory: "C:\\Users\\macroh\\Desktop\\text1"  # 本地目录路径
+
+settings:
+  max_workers: 30              # 并发线程数
