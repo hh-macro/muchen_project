@@ -6,6 +6,7 @@
 # Copyright (c) 2025 by 胡H, All Rights Reserved.
 # @desc:
 import json
+import os
 import random
 
 import requests
@@ -133,11 +134,29 @@ class LanguageReactorAPI:
         if not e_books_message: raise '数据为空!'
         return e_books_message
 
-    def dict_json(self, data):
-        """ 将列表嵌套的字典转换为json格式并保存本地"""
-        json_data = json.dumps(data, indent=4)  # indent 参数用于美化输出
+    def read_json(self):
+        """读取本地 JSON 文件，如果文件不存在或为空则返回空列表"""
+        if os.path.exists("result/atlastResult.json"):
+            with open("result/atlastResult.json", "r", encoding='utf-8') as json_file:
+                content = json_file.read()
+                if content.strip():  # 检查文件是否为空或只包含空白字符
+                    return json.loads(content)
+                else:
+                    return []
+        else:
+            return []
+
+    def dict_json(self, new_data):
+        """将列表嵌套的字典转换为 JSON 格式并保存到本地"""
+        # 读取已有的数据
+        existing_data = self.read_json()
+        # 合并数据
+        merged_data = existing_data + new_data
+        # 将合并后的数据转换为 JSON 字符串
+        json_data = json.dumps(merged_data, indent=4, ensure_ascii=False)
+        # 将合并后的数据写入本地文件
         with open("result/atlastResult.json", "w", encoding='utf-8') as json_file:
-            json.dump(data, json_file, indent=4, ensure_ascii=False)
+            json.dump(merged_data, json_file, indent=4, ensure_ascii=False)
         return json_data
 
     def merge_lists(self, list1, list2):
@@ -180,6 +199,8 @@ class LanguageReactorAPI:
             if response.status_code != 200:
                 return 0
             data_resu_list = response.json()['data']
+            if not data_resu_list:
+                return 0
             # data_resu_str = ' '.join(data_resu_list)
             return data_resu_list
         except Exception as e:
@@ -187,51 +208,68 @@ class LanguageReactorAPI:
             return None
 
     def complete_response(self):
-        for e_book_name in self.e_books_message:  # 遍历所有电子书
-            random.uniform(1, 5)
-            print(f'当前电子书 --> {e_book_name}', end=' ')
-            print('=' * 61)
-            # e_book_name   ----> {'diocoDocId': 'gb_3015', 'pageCount': '42'}
-            pageCount = int(e_book_name['pageCount'])
-            for page in range(pageCount):  # 遍历所有页数
-                random.uniform(0, 1)
-                print(f'第{page}页', end=' ')
-                print('-' * 51)
-                book_page = self.get_book_page(
-                    dioco_doc_id=e_book_name['diocoDocId'],
-                    page_num=page
-                )
-                # print(book_page)
-                translations_zhCN = self.get_page_translations(
-                    dioco_doc_id=e_book_name['diocoDocId'],
-                    page_num=page,
-                    translation_lang='zh-CN'
-                )
-
-                self.atlastResult.extend([{**item, 'language': '英语'} for item in
-                                          self.merge_lists(translations_zhCN, book_page)])
-                for state, trans in self.language_dict.items():  # 遍历所有语言列表
-                    random.uniform(0, 0.5)
-                    print(f'{state}', end=' ')
-                    print('.' * 51)
-                    # print(state, trans)  # 日语 ja
-                    translations = self.get_page_translations(
-                        dioco_doc_id=e_book_name['diocoDocId'],  # gb_3015
-                        page_num=page,  # 0
-                        translation_lang=trans  # ja
-                    )
-                    if translations == 0:
-                        print(f'当前{state} 语言不存在， 将跳过当前语言!')
-                        continue
-                    merged_lists = [{**item, 'language': state} for item in
-                                    self.merge_lists(translations_zhCN, translations)]  # 将一个键值对插入列表中每个字典
-                    self.atlastResult.extend(merged_lists)
+        try:
+            for e_book_name in self.e_books_message:  # 遍历所有电子书
+                random.uniform(1, 5)
+                print(f'当前电子书 --> {e_book_name}', end=' ')
+                print('=' * 61)
+                # e_book_name   ----> {'diocoDocId': 'gb_3015', 'pageCount': '42'}
+                pageCount = int(e_book_name['pageCount'])
+                for page in range(pageCount):  # 遍历所有页数
+                    try:
+                        random.uniform(0, 1)
+                        print(f'第{page}页', end=' ')
+                        print('-' * 51)
+                        book_page = self.get_book_page(
+                            dioco_doc_id=e_book_name['diocoDocId'],
+                            page_num=page
+                        )
+                        if not book_page:
+                            print('book_page 内容为空,将跳过当前页')
+                            continue
+                            # print(book_page)
+                        translations_zhCN = self.get_page_translations(
+                            dioco_doc_id=e_book_name['diocoDocId'],
+                            page_num=page,
+                            translation_lang='zh-CN'
+                        )
+                        if translations_zhCN == 0:
+                            print(f'当前页数{page}有问题! 将跳过当前页')
+                            continue
+                        self.atlastResult.extend(
+                            [{**item, 'language': '英语'} for item in self.merge_lists(translations_zhCN, book_page)])
+                        for state, trans in self.language_dict.items():  # 遍历所有语言列表
+                            try:
+                                random.uniform(0, 0.5)
+                                print(f'{state}', end=' ')
+                                print('.' * 51)
+                                # print(state, trans)  # 日语 ja
+                                translations = self.get_page_translations(
+                                    dioco_doc_id=e_book_name['diocoDocId'],  # gb_3015
+                                    page_num=page,  # 0
+                                    translation_lang=trans  # ja
+                                )
+                                if translations == 0:
+                                    print(f'当前{state} 语言不存在， 将跳过当前语言!')
+                                    continue
+                                merged_lists = [{**item, 'language': trans} for item in
+                                                self.merge_lists(translations_zhCN, translations)]  # 将一个键值对插入列表中每个字典
+                                self.atlastResult.extend(merged_lists)
+                            except Exception as e:
+                                print(f"处理语言{state}时发生异常: {e}")
+                                self.dict_json(self.atlastResult)
+                    except Exception as e:
+                        print(f"处理第{page}页时发生异常: {e}")
+                        self.dict_json(self.atlastResult)
+                        continue  # 继续处理下一页
+            self.dict_json(self.atlastResult)
+        except Exception as e:
+            print(f"程序发生未预期异常: {e}")
+            self.dict_json(self.atlastResult)
+            raise  # 重新抛出异常或处理后退出
 
 
 # 示例用法
 if __name__ == "__main__":
-    api_client = LanguageReactorAPI(keyword='culture')
-    api_client.complete_response()  # 执行主方法
-
-    atlastResult = api_client.atlastResult
-    api_client.dict_json(atlastResult)
+    api_construction = LanguageReactorAPI(keyword='culture')
+    api_construction.complete_response()  # 执行主方法
