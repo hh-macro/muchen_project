@@ -1,10 +1,3 @@
-# -- coding: utf-8 --
-# @Author: 胡H
-# @File: page_getTranslations.py
-# @Created: 2025/5/9 11:06
-# @LastModified: 
-# Copyright (c) 2025 by 胡H, All Rights Reserved.
-# @desc:
 import requests
 
 headers = {
@@ -25,14 +18,44 @@ headers = {
     'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36',
 }
 
-json_data = {
-    'diocoDocId': 'gb_20203',
-    'pageNum': 0,
-    'translationLang_G': 'zh-CN',
-    'auth': None,
-}
 
-response = requests.post('https://api-cdn.dioco.io/base_media_getBookPageTranslations_5', headers=headers, json=json_data)
+def base_media_getMediaDocs(keyword=None, freq95_min=0, freq95_max=100000, page_min=None, page_max=None):
+    json_data = {
+        'auth': None,
+        'translationLang_G': 'zh-CN',
+        'freq95': {
+            'min': freq95_min,
+            'max': freq95_max,
+        },
+        'lang_G': 'en',
+        'filters': {
+            'mediaTab': 'TAB_BOOKS',
+            'searchText': keyword,
+            'pageCount': {
+                'min': page_min,
+                'max': page_max,
+            },
+        },
+        'pinnedDiocoPlaylistIds': [],
+        'diocoPlaylistId': 't_tx_all_en',
+        'forceIncludeDiocoDocId': None,
+    }
 
-print(type(response.text))
-print(response.json())
+    response = requests.post('https://api-cdn.dioco.io/base_media_getMediaDocs_5', headers=headers, json=json_data)
+
+    docs_metadata_list = response.json()['data']['docs_metadata']
+
+    # 提取指定的键并创建新的列表
+    e_books_name = []
+    for docs_metadata in docs_metadata_list:
+        new_item = {
+            "diocoDocId": docs_metadata.get("diocoDocId"),
+            "diocoDocName": docs_metadata.get("diocoDocName"),
+            "pageCount": docs_metadata.get("pageCount")
+        }
+        e_books_name.append(new_item)
+
+    return e_books_name
+
+
+print(base_media_getMediaDocs())

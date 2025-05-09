@@ -32,5 +32,5 @@ json_data = {
 }
 
 response = requests.post('https://api-cdn.dioco.io/base_media_getBookPageNLP_5', headers=headers, json=json_data)
-
-print(response.json())
+data_subs = response.json()['data']['nlpDataBlob']['subs']
+text_list = [item.get('text', '') for item in data_subs]
