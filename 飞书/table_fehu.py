@@ -19,10 +19,10 @@ class FeishuTableWriter:
         self.sheet_id = sheet_id
         self.access_token = self._get_access_token()
 
-    def _get_node_wiki(self):
+    def _get_node_wiki(self) -> dict:
         """获取知识空间节点信息"""
         headers = {
-            "Authorization": "Bearer u-cNRtUk0Zdc3FqupXl.y0SLg13J.wkg2NjgG0kl6a2B.v"
+            "Authorization": f"Bearer {self.access_token}"  # 使用动态获取的令牌
         }
         url = "https://open.feishu.cn/open-apis/wiki/v2/spaces/get_node"
         params = {
@@ -34,7 +34,7 @@ class FeishuTableWriter:
             raise Exception(f"GET间节点信息失败:  {response.text}")
         return response.json()["data"]["node"]
 
-    def _get_access_token(self):
+    def _get_access_token(self) -> str:
         """通过APP_ID和APP_SECRET获取租户访问令牌"""
         url = "https://open.feishu.cn/open-apis/auth/v3/tenant_access_token/internal"
         payload = {
@@ -46,13 +46,20 @@ class FeishuTableWriter:
             raise Exception(f"POST访问令牌失败:  {response.text}")
         return response.json()["tenant_access_token"]
 
-    # 获取当前行数
-    def get_row_count(self, token):
-        url = f"https://open.feishu.cn/open-apis/sheet/v2/spreadsheets/{SPREADSHEET_TOKEN}/sheets/{SHEET_ID}/meta"
-        headers = {"Authorization": f"Bearer {token}"}
-        response = requests.get(url, headers=headers)
-        data = response.json()
-        return data.get("data", {}).get("rowCount", 0)
+        # def get_row_count(self):
+        #     """获取表格元数据 """
+        #     obj_token = self._get_node_wiki()['obj_token']
+        #     # url = f"https://open.feishu.cn/open-apis/sheet/v2/spreadsheets/{obj_token}/sheets/{self.sheet_id}/meta"
+        #     url = f"https://open.feishu.cn/open-apis/sheets/v2/spreadsheets/{obj_token}/metainfo"
+        #     headers = {"Authorization": f"Bearer {self.access_token}"}
+        #     response = requests.get(url, headers=headers)
+        #     # print(response.text)
+        #     data = response.json()['data']
+        #     sheets = data['sheets']
+        #
+        #     target_sheet = [sheet for sheet in sheets if sheet['sheetId'] == self.sheet_id]
+        #     print(target_sheet)
+        #     row_count = target_sheet[0].get("rowCount")
 
     def write_to_table(self, range, values):
         """批量写入Feishu表中指定范围的内容"""
@@ -71,7 +78,7 @@ class FeishuTableWriter:
         response = requests.put(url, headers=headers, data=json.dumps(payload))
         # print(response.text)
         if response.status_code != 200:
-            raise Exception(f"Failed to write to table: {response.text}")
+            raise Exception(f"写入表格失败: {response.text}")
         return response.json()
 
 
@@ -83,12 +90,13 @@ if __name__ == "__main__":
 
     writer = FeishuTableWriter(APP_ID, APP_SECRET, SPREADSHEET_TOKEN, SHEET_ID)
 
-    range_to_write = "A1:B2"
-    values_to_write = [
-        ["Name", "Age"],
-        ["Alice", "25"]
-    ]
+    title = ["Name", "Age", "gender"]
+    data = ["Alice", "25", "man"]
 
-    # 将数据写入表
-    result = writer.write_to_table(range_to_write, values_to_write)
-    print("Write result:", result)
+    # 这里直接写入标题（根据需求调整）
+    writer.write_to_table("A1:C1", [title])
+
+    empty_row = 3
+    # 写入数据
+    result = writer.write_to_table(f"A{empty_row}:C{empty_row}", [data])
+    print("写入成功:", result)
