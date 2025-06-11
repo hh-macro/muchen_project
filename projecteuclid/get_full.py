@@ -16,9 +16,11 @@ import requests
 import urllib3
 from bs4 import BeautifulSoup
 from pymongo import MongoClient
+from fake_useragent import UserAgent
 
 from decorators import retry_request
 from logger_init import logger
+from mgPaginator import MongoPaginator
 
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 current_file = Path(__file__).parent  # E:\AAA-project\muchen_project\projecteuclid
@@ -27,64 +29,65 @@ client = MongoClient(
     'mongodb://root:Aliyun_Mongo_20250218@dds-2vc3c96a7e797ee41197-pub.mongodb.cn-chengdu.rds.aliyuncs.com:3717,dds-2vc3c96a7e797ee42971-pub.mongodb.cn-chengdu.rds.aliyuncs.com:3717/admin?replicaSet=mgset-1150525521')
 db = client['projecteuclid']
 projecteuclidResult = db['projecteuclidResult']
+awaitResult = db['awaitResult']
+ua = UserAgent()
+
+
+def proxy_pool(max_retries=3):
+    """
+    管理代理池，提供随机代理选择和简单的失败重试机制。
+    :return dict: 随机选择的代理，或None如果所有代理都不可用
+    """
+    proxies = [
+        {'http': 'socks5://182.42.139.81:11752', 'https': 'socks5://182.42.139.81:11752'},
+        {'http': 'socks5://124.236.46.230:18362', 'https': 'socks5://124.236.46.230:18362'},
+        {'http': 'socks5://106.227.48.126:12811', 'https': 'socks5://106.227.48.126:12811'}
+    ]
+    if not proxies:
+        return None
+    for _ in range(max_retries):
+        proxy = random.choice(proxies)
+        try:
+            # 可添加代理验证逻辑
+            return proxy
+        except Exception:
+            continue
+    return None
 
 
 class PageFetcher:
     def __init__(self):
         self.session = requests.Session()
         self.headers = {
-            "accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7",
-            "accept-language": "zh-CN,zh;q=0.9,en;q=0.8,en-US;q=0.7",
-            "cache-control": "no-cache",
-            "pragma": "no-cache",
-            "priority": "u=0, i",
-            "sec-ch-ua": "\"Google Chrome\";v=\"137\", \"Chromium\";v=\"137\", \"Not/A)Brand\";v=\"24\"",
-            "sec-ch-ua-mobile": "?0",
-            "sec-ch-ua-platform": "\"Windows\"",
-            "sec-fetch-dest": "document",
-            "sec-fetch-mode": "navigate",
-            "sec-fetch-site": "none",
-            "sec-fetch-user": "?1",
-            "upgrade-insecure-requests": "1",
-            "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36"
-        }
-
-        self.cookies = {
-            "cookieconsent_status": "dismiss",
-            "AdvancedSearchSave": "{\"AdvLogicTextFields\":[{\"logic\":\"AND\",\"text\":\"\",\"field\":\"ALL\"},{\"logic\":\"AND\",\"text\":\"\",\"field\":\"ALL\"},{\"logic\":\"AND\",\"text\":\"\",\"field\":\"ALL\"},{\"logic\":\"AND\",\"text\":\"\",\"field\":\"ALL\"},{\"logic\":\"AND\",\"text\":\"\",\"field\":\"ALL\"},{\"logic\":\"AND\",\"text\":\"\",\"field\":\"ALL\"},{\"logic\":\"AND\",\"text\":\"\",\"field\":\"ALL\"},{\"logic\":\"AND\",\"text\":\"\",\"field\":\"ALL\"}],\"AdvSearchWithin\":{\"Publications\":[],\"Collections\":[]},\"AdvSearchYears\":{\"Start\":\"\",\"End\":\"\",\"Single\":\"\"}}",
-            "visid_incap_2482420": "OS32axZOTZKXQsESOMQrog2ZRmgAAAAAQUIPAAAAAACXqb/tbmj4nXFCXdBO3UbE",
-            "ASP.NET_SessionId": "atngcuevsjidcnjespwhx2w5",
-            "__RequestVerificationToken": "X9XAp7cs5FxXAQjqrJOjGiM_ABjrimDm1ZLgyshgzCH5eKJNlQlEP5gRQ4OPUS0Fv_IQIeBih4-rz6SMcF3bHcg3O501",
-            "nlbi_2482420": "HzAVH2c5/Xjxj8ac6OT8qQAAAAB8SLQ1fdNUdJmo7EXRDiaa",
-            "incap_ses_1838_2482420": "6F+TdG2CNhpjSo1Gi+OBGYmDR2gAAAAA8nZhSCx2WRkk0TvxxKOyLQ==",
-            "incap_ses_84_2482420": "WbpiNzHqvXzs1sXX9m0qAfuGR2gAAAAApVAkGr5jea9XSUGqbjqMrQ==",
-            "reese84": "3:CNoCsQ0NRwrMeBwGo7gRgA==:U5uo51OKgOZIB1fupYG/9qkDWHJJMd7maSZN5o5xeIfaTvdHVlj+Fgfi1C7R4ylvpbm0rKlIeVZfAxCQO1v9ntwxahVKz82IGIOrmZeY+WV0gPQrrQ0L1qXtIqOw31OJhn762XDL75nplyheoWhkebCKDt/X9hTpt96WWLn8E8ebBaW5WC7MV+v7vmmz0Nw6rl1a5kXJHMH5i78yzPpbmtFxyBUkd2dYbc04JcfA80OqBVxyaaER/t65tXZorhIQYz8iEIdgcdjDULZm32QXtg4pbJMy0n7hASdbChjjsIoRCkhtLpqnCwWp6iVxHGVpT4GWzhCl6FflB+v58jCS1ynuvFxkYIb0+GedCFzqddB7aDjarLVtKhBm8n7rOmrYu8UoaHuJS/TDEV6OmU4qZJ22KooNrZCVhjk9VChOBE6nvXqbhk6K15HqvfNkyRohDY/LGygPUCD9i7w6OBsZcg==:X9VElwsHZMvEBUvX10gF+MDiH3w6uNtrBXsXcQcvNj4=",
-            "nlbi_2482420_2147483392": "bnxObCECiSlUD6b+6OT8qQAAAABuLY1fIGjxpf2xaP+JqNgh"
+            "user-agent": ua.random
         }
         self.base_url = 'https://projecteuclid.org'
 
-    @retry_request()
+    def init_cookie(self):
+        # 第一次访问主页或某个页面来让网站设置 cookie
+        self.headers["User-Agent"] = ua.random
+        resp = self.session.get(self.base_url, headers=self.headers, timeout=15)
+        resp.raise_for_status()
+        logger.info(f"动态获取 cookie: {self.session.cookies.get_dict()}")
+
+    @retry_request(max_retries=5, delay=2, backoff=4)
     def fetch_page(self, url):
         """
         发送 GET 请求并返回 BeautifulSoup 对象
         """
-        try:
-            logger.info(f"正在请求页面: {url}")
-            response = self.session.get(
-                url,
-                headers=self.headers,
-                cookies=self.cookies,
-                timeout=10,
-                verify=False
-            )
-            if response.status_code != 200:
-                raise Exception(f'{response.status_code} 请求错误!')
-            response.encoding = 'utf-8'
-            response.raise_for_status()
-            return BeautifulSoup(response.text, 'html.parser')
-        except Exception as e:
-            logger.error(f"[fetch_page] 请求失败: {url} 错误: {e}")  #
-            raise
+        response = self.session.get(
+            url,
+            headers=self.headers,
+            # cookies=self.cookies,
+            timeout=10,
+            verify=False,
+            # proxies=proxy_pool()
+        )
+        if response.status_code != 200:
+            raise Exception(f'{response.status_code} 请求错误!')
+        response.encoding = 'utf-8'
+        response.raise_for_status()
+        return BeautifulSoup(response.text, 'html.parser')
 
     def save_json(self, data_dict, json_path):
         """
@@ -116,11 +119,13 @@ class PageFetcher:
             response = self.session.get(
                 url,
                 headers=self.headers,
-                cookies=self.cookies,
+                # cookies=self.cookies,
                 timeout=20,
                 stream=True,
-                verify=False
+                verify=False,
+                # proxies=proxy_pool()
             )
+            # print(response.status_code)
             response.raise_for_status()
 
             with open(save_path, "wb") as f:
@@ -135,9 +140,12 @@ class PageFetcher:
 
     @retry_request(max_retries=5, delay=3, backoff=5)
     def gain_data(self, url, issn, save_path) -> dict:
-        soup_data = fetcher.fetch_page(url)
+        soup_data = self.fetch_page(url)
         # print(soup_data)
-        title = soup_data.select_one(".ProceedingsArticleOpenAccessHeaderText").text
+        title_type = soup_data.select_one(".ProceedingsArticleOpenAccessHeaderText")
+        if not title_type:
+            raise f'{title_type} 为空，ip被封或者触发网站反爬机制'
+        title = title_type.text
         # down_href = self.base_url + soup_data.select_one('.ui-button.btn-DownloadPaper')['href']
         content_length = os.path.getsize(Path(current_file, save_path))  # 单位是字节
         proceedings_text = soup_data.select_one('.ProceedingsArticleOpenAccessText')
@@ -164,7 +172,7 @@ class PageFetcher:
         # print(category_str, span_tags)
         category_str.append(span_tags)
         category = '|'.join(category_str)
-        immersives = soup_data.select('.KeyWordsPanel div')
+        immersives = soup_data.select('.KeyWordsPanel div div')
         magazine = soup_data.select_one('.KeyWordsPanel div div a b').text
         volume = immersives[1].text
 
@@ -172,9 +180,9 @@ class PageFetcher:
         result_dict = {
             "track_id": str(uuid.uuid4()),
             "url": url,
-            "relative_path": save_path,
+            "relative_path": save_path.as_posix(),
             "file_type": "pdf",
-            "file_format": "pdf",
+            "file_format": "paper",
             "content_length": content_length,
             "title": title,
             "author": author,
@@ -182,8 +190,8 @@ class PageFetcher:
             "language": language,
             "abstract": abstract,
             "category": category,
-            "classification_code": "",
-            "keyword": "",
+            # "classification_code": "",
+            # "keyword": "",
             "magazine": magazine,
             "issn": issn,
             "volume": volume.strip(),
@@ -205,8 +213,8 @@ class PageFetcher:
                 if children:
                     last_child = children[-1]['href']
                     browse_list.append(self.base_url + last_child)
-            logger.info(f"获取到 {len(browse_list)} 个大类页面")
             return browse_list
+
         except Exception as e:
             logger.error(f"[get_browse] 获取失败: {e}")
 
@@ -237,52 +245,97 @@ class PageFetcher:
             'issn': online_issn.strip()
         }
 
-    def large_number(self, part_url: str, issn: str) -> None:
-        """下载该页所有 PDF 文件，提取信息并保存 JSON
-        :param: part_url  详细页面url
-        :param  issn  父页获取到的issn
+    def large_down_main(self):
+        """读取 mango 并遍历详细页链接和下载链接 | 下载该页所有 PDF 文件，提取信息并保存 JSON
+        :return:
+        """
+        paginator = MongoPaginator(db)
+        page = 1
+        page_size = 100   # 此数量必须大于最大数量
+        while True:
+            message_result = paginator.paginate(
+                collection_name="awaitResult",
+                page=page,
+                page_size=page_size, )
+            data_results = message_result["data"]
+            if page >= message_result["total_pages"]:  #
+                break
+            for data_re in data_results:
+                time.sleep(random.uniform(0.9, 2))
+                down_url = data_re.get('down_url')
+                page_url = data_re.get('page_url')
+                # print('down_url:\t', down_url)
+                # print('page_url:\t', page_url)
+                issn = data_re.get('issn')
+
+                try:  # 核心处理部分
+                    md5_filename = hashlib.md5(down_url.encode('utf-8')).hexdigest() + ".pdf"
+                    # save_dir = r'E:\AAA-project\muchen_project\projecteuclid\save_pdf'
+                    save_dir = Path(current_file, 'save_pdf')
+                    os.makedirs(save_dir, exist_ok=True)
+                    save_path = Path('save_pdf', md5_filename)
+                    # print(page_url, save_path)
+                    self.download_pdf(down_url, Path(current_file, save_path))  #
+                    result_dict = self.gain_data(f'{page_url}?tab=ArticleLink', issn, save_path)  #
+                    json_path = Path(current_file, 'projecteuclid2.json')
+                    # print(result_dict)
+                    self.save_json(result_dict, json_path)  # 读取再存入
+                    logger.info(f"处理完成: {page_url}")
+                    projecteuclidResult.insert_one(result_dict)  # 将完成的内容保存到mango中
+                    awaitResult.delete_one({"page_url": page_url})  # 从 awaitResult 中删除已完成项
+                except Exception as e:
+                    logger.error(f"[large_number] 处理失败: {page_url}\t 错误: {e}")
+
+            page += 1
+            time.sleep(random.uniform(5, 10))
+
+    def large_number(self, part_url: str, issn: str) -> int:
+        """将符合的详情链接和下载链接保存到mango中
+        :param part_url  详细页面url
+        :param issn  父页获取到的issn
         """
         soup_issue = self.fetch_page(part_url)
-        down_urls = [self.base_url + group['href'] for group in soup_issue.select('.form-group.DownloadSaveButton1')]
+        try:
+            down_urls = [self.base_url + group['href'] for group in
+                         soup_issue.select('.form-group.DownloadSaveButton1')]
+        except KeyError as e:
+            logger.warning(f"当前论题 下载需要25$  \t-->{e}")
+            return 0
         page_urls = [self.base_url + issue['href'] for issue in soup_issue.select('.TocLineItemAnchorText1')]
-        self.fetch_page(f'{part_url}')
-
         for down_url, page_url in zip(down_urls, page_urls):
-            try:
-                md5_filename = hashlib.md5(down_url.encode('utf-8')).hexdigest() + ".pdf"
-                # save_dir = r'E:\AAA-project\muchen_project\projecteuclid\save_pdf'
-                save_dir = Path(current_file, 'save_pdf')
-                os.makedirs(save_dir, exist_ok=True)
-                save_path = Path('save_pdf', md5_filename)
-                print(page_url, save_path)
-                self.download_pdf(down_url, Path(current_file, save_path))  #
-                result_dict = self.gain_data(f'{page_url}?tab=ArticleLink', issn, save_path)  #
-                json_path = Path(current_file, 'projecteuclid1.json')
-                # print(result_dict)
-                self.save_json(result_dict, json_path)  # 读取再存入
-                logger.info(f"处理完成: {page_url}")
-                projecteuclidResult.insert_one(result_dict)  # 将完成的内容保存到mango中
-            except Exception as e:
-                logger.error(f"[large_number] 处理失败: {page_url}\t 错误: {e}")
+            awaitResult.insert_one({
+                "down_url": down_url,
+                "page_url": page_url,
+                "issn": issn
+            })
+            logger.info(f'{page_url} 插入成功!')
 
     def gain_main(self):
-        """调用其他方法并组合程序
+        """调用其他方法 | 将所有可下载链接保存到 mango 中
         :return:
         """
         logger.info("程序启动，开始抓取 ProjectEuclid 数据")
         browse_list = self.get_browse('https://projecteuclid.org/browse/title/A')  # 获取当前大类别的所有年份书籍url 列表 -> list
+        logger.info(f"获取到 {len(browse_list)} 个大类页面")
+
         for brow_url in browse_list:
-            time.sleep(random.uniform(1.5, 3))
+            logger.info(f'正在请求书籍链接 ->  {brow_url}')
+            time.sleep(random.uniform(5, 30))
             issn_dict = self.get_details_dict(brows=brow_url)  # 获取当前页面的issn -> dict
             issn = issn_dict.get('issn')
             mathematica_list = self.get_mathematica(brows=brow_url)  # 获取当前书籍类别下的所有数据url 列表 -> list
-            for mathe_url in mathematica_list:
-                time.sleep(random.uniform(0.5, 1))
-                self.large_number(part_url=mathe_url, issn=issn)  # 下载页面内容所有pdf | 获取子链接中所有的详情信息 | 保存信息到本地json中
-
+            new_mathematica_list = [ma.replace('/issues/', '/volume-') + '/issue-none' for ma in mathematica_list]
+            for mathe_url in new_mathematica_list:
+                time.sleep(random.uniform(2, 5.5))
+                condition = self.large_number(part_url=mathe_url,
+                                              issn=issn)  # 下载页面内容所有pdf | 获取子链接中所有的详情信息 | 保存信息到本地json中
+                if condition == 0:
+                    logger.warning(f'将对当前整个年份论题进行跳过 \t->跳过{mathe_url}')
             break
 
 
 if __name__ == "__main__":
     fetcher = PageFetcher()
-    fetcher.gain_main()
+    fetcher.init_cookie()  # 自动管理cookie
+    # fetcher.gain_main()  # 获取链接
+    fetcher.large_down_main()  # 下载
