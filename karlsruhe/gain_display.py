@@ -16,6 +16,7 @@ import urllib3
 from pathlib import Path
 
 from logg_init import logger
+from decorators import retry_request
 
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)  # 消除证书不安全警告显示
 
@@ -44,30 +45,28 @@ class ICSDClient:
             "sec-ch-ua-mobile": "?0",
             "sec-ch-ua-platform": "\"Windows\""
         }
-        self.cookies2 = {
-            "ICSDCHECK": "1749715159692",
-            "JSESSIONID": "0904E580A55491728D1D2ECA0E354A11",
-            "FIZ-Cookie": "289161869.16671.0000",
-            "_pk_id.4.b153": "9f12b672c8c2c1e9.1749715170.",
-            "_pk_ses.4.b153": "1",
-            "mtm_consent_removed": "true",
-            "piwikNoticeClosed": "true"
-        }
-        self.cookies1 = {
-            '_pk_id.4.b153': 'dc235a62294ff2ed.1749637930.',
-            'ICSDCHECK': '1749699576133',
+        self.cookies2 = {  # 13097208215
+            'ICSDCHECK': '1749779791566',
+            'JSESSIONID': '536AC7CED122E783A2050C46F47E6B0C',
             'FIZ-Cookie': '289161869.16671.0000',
+            '_pk_id.4.b153': 'f95f09ad78e8b0b3.1749779797.',
             '_pk_ses.4.b153': '1',
             'mtm_consent_removed': 'true',
             'piwikNoticeClosed': 'true',
-            'JSESSIONID': '6E5C3BA3D08D26D99148D0703D804334',
-            'csfcfc': 'YEBqXBH4gYfWtkFgVbkCGdrsmVIamShAB6P1tXfYCeMCWO%2BIZQ%3D%3D',
+        }
+        self.cookies1 = {  # 16623062259
+            '_pk_id.4.b153': 'dc235a62294ff2ed.1749637930.',
+            'ICSDCHECK': '1749776668939',
+            'FIZ-Cookie': '289161869.16671.0000',
+            '_pk_ses.4.b153': '1',
+            'JSESSIONID': '803E3645B7A09FDF17655FBC34C19A69',
         }
 
     def string_to_md5(self, string):
         md5_hash = hashlib.md5(string.encode()).hexdigest()
         return md5_hash
 
+    @retry_request(max_retries=6, delay=1, backoff=3)
     def save_cif_file(self, down_url: str, down_path):
         """ 保存cif到本地
         :param down_url:
@@ -80,7 +79,7 @@ class ICSDClient:
                 f.write(response.content)
             logger.info(f"CIF 文件已保存到: {down_path}")
         else:
-            logger.error(f"下载失败，状态码: {response.status_code}")
+            logger.error(f"下载失败，下载次数上限 | \t状态码: {response.status_code}")
 
     def save_to_json(self, data_list, file_path: Path, fileName):
         """ 将列表保存为本地 JSON 文件
@@ -94,6 +93,7 @@ class ICSDClient:
         except Exception as e:
             logger.error(f" 保存 JSON 文件出错: {e}")
 
+    @retry_request(max_retries=5, delay=1, backoff=3)
     def fetch_page(self, url, data: dict = None, type_ver: str = None):
         """ 获取并解析页面内容 | 如果响应内容太短(小于1000字符), 尝试使用cookies2再次请求
         :param url:
@@ -141,7 +141,7 @@ class ICSDClient:
             return BeautifulSoup(response.text, 'lxml')
         return BeautifulSoup(response.text, 'html.parser')
 
-    def post_list_view(self, page: int, view_state: str, file_path: Path) -> list or int:
+    def post_list_view(self, page: int, view_state: str, file_path: Path, fileName: str) -> list or int:
         """
         提交分页查询请求，抓取初始列表页
         :return: 请求响应文本
@@ -190,7 +190,7 @@ class ICSDClient:
                 self.save_cif_file(down_url, down_path)
                 tr_list.append(
                     {"icsd_code": icsd_code, "struct_from": struct_from, "struct_type": struct_type, "title": title,
-                     "reference": reference, "down_path": f'resultJson/EntryWithCollCode{icsd_code}.cif'})
+                     "reference": reference, "down_path": f'resultJson/{fileName}/EntryWithCollCode{icsd_code}.cif'})
             except Exception as e:
                 logger.error(f"下载失败! -> {e}")
                 tr_list.append(
@@ -204,15 +204,18 @@ class ICSDClient:
 
     def dispose_message(self):
         message_data = []
-        view_state = '7595524056105717739:-4048064795409396653'
+        view_state = '5007951859090627401:-3066844708551798221'
         fileName = self.string_to_md5(view_state)  # 转换md5
         file_path = Path(current_file, 'resultJson', fileName)
         os.makedirs(file_path, exist_ok=True)
-        for page in range(0, 10, 10):
+        for page in range(0, 30, 10):
             time.sleep(random.uniform(0.9, 1.9))
-
-            logger.info(f'正在获取 \t{view_state} \t第{page}页')
-            tr_data_list = self.post_list_view(page, view_state, file_path)  # 核心获取
+            logger.info(f'正在获取 \t{view_state} \t第{page // 10 + 1}页 \t', '-' * 51)
+            try:
+                tr_data_list = self.post_list_view(page, view_state, file_path, fileName)  # 核心获取
+            except Exception as e:
+                logger.error(f"当前页获取失败! 将跳过此页\t{e}")
+                continue
             if not tr_data_list:
                 logger.info(f"{view_state}: \t已取完所有内容")
                 break
