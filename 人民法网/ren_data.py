@@ -5,6 +5,8 @@ from datetime import datetime
 import requests
 
 import json
+
+
 def extract_relevant_part(text):
     """将 text 文本取最后一段，再从取年月日开始取到最后 """
     # 分割段落并获取最后一段
@@ -34,6 +36,8 @@ def extract_relevant_part(text):
     else:
         # 如果没找到日期，则返回整段
         return last_paragraph
+
+
 def clean_html_tags(text):
     # 去掉<p>标签
     text = re.sub(r'<p>', '', text)
@@ -44,46 +48,40 @@ def clean_html_tags(text):
     text = re.sub(r'\s+', ' ', text).strip()
     return text
 
+
 cookies = {
-    'UM_distinctid': '1966651a52b93a-0a2efd771a98d6-26011c51-1fa400-1966651a52c1843',
-    'wzws_sessionid': 'gDEyNS44MC4yMDYuMTI3gTMzZDBmMoJjYWJhODSgaAnPdA==',
-    'HMACCOUNT': '78DFBE33FB144353',
-    'UM_distinctid': '0',
-    'Hm_lvt_d78a621da6111a54cda8ed0e717115b9': '0',
-    'HMACCOUNT': '0',
-    'Hm_lpvt_d78a621da6111a54cda8ed0e717115b9': '0',
-    'faxin-cpws-al-token': 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE3NDU1MDAxMzksInVzZXJuYW1lIjoiZ215Q2ZDMWRRVk0yRnc3Z1I0NE0wd0xsUUExdHg5b2JTTkNIenUvdWZmNGNlQ3g5b2owK2xobEhsaEZMMHJJM1hIYXFKZ0UwejJBPSJ9.Qrk2JjDGLlEnJvwbYvdaLykR5jlkTjmmZS2FyPboPKQ',
-    'Hm_lvt_d78a621da6111a54cda8ed0e717115b9': '1745485678',
-    'Hm_lpvt_d78a621da6111a54cda8ed0e717115b9': '1745485678',
+    "UM_distinctid": "0",
+    "wzws_sessionid": "gTdkZGVkYaBoazS8gDExMy4yNTEuOTAuMjUxgmNhYmE4NA==",
+    "HMACCOUNT": "0",
+    "Hm_lvt_d78a621da6111a54cda8ed0e717115b9": "1751871913",
+    "Hm_lpvt_d78a621da6111a54cda8ed0e717115b9": "1751871913",
+    "faxin-cpws-al-token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE3NTE4ODYyMDAsInVzZXJuYW1lIjoiL3VOMzJiQkdrN0tBRTZFYVJJQlVFVGlRZGxVTWxQUm9OTGtudlNtZ2IycC95VDN0SjJvc3JoSFJYcVphYlBnZCtwelVoNEZiMXBnPSJ9.RqCq7mTvFILOWH6pmwc6HE-OA-Uw-gieZoQQNZ6tkok"
 }
 
 headers = {
-    'Accept': 'application/json, text/javascript, */*; q=0.01',
-    'Accept-Language': 'zh-CN,zh;q=0.9,en;q=0.8,en-US;q=0.7',
-    'Cache-Control': 'no-cache',
-    'Connection': 'keep-alive',
-    'Content-Type': 'application/json;charset=UTF-8',
-    'Origin': 'https://rmfyalk.court.gov.cn',
-    'Pragma': 'no-cache',
-    'Referer': 'https://rmfyalk.court.gov.cn/view/list.html?key=case_sort_id_cpwsAl&keyName=%25E6%25A1%2588%25E4%25BB%25B6%25E7%25B1%25BB%25E5%259E%258B&value=01&valueName=%25E5%2588%2591%25E4%25BA%258B&isAdvSearch=2',
-    'Sec-Fetch-Dest': 'empty',
-    'Sec-Fetch-Mode': 'cors',
-    'Sec-Fetch-Site': 'same-origin',
-    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36',
-    'X-Requested-With': 'XMLHttpRequest',
-    'faxin-cpws-al-token': 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE3NDU1MDAxMzksInVzZXJuYW1lIjoiZ215Q2ZDMWRRVk0yRnc3Z1I0NE0wd0xsUUExdHg5b2JTTkNIenUvdWZmNGNlQ3g5b2owK2xobEhsaEZMMHJJM1hIYXFKZ0UwejJBPSJ9.Qrk2JjDGLlEnJvwbYvdaLykR5jlkTjmmZS2FyPboPKQ',
-    'sec-ch-ua': '"Google Chrome";v="135", "Not-A.Brand";v="8", "Chromium";v="135"',
-    'sec-ch-ua-mobile': '?0',
-    'sec-ch-ua-platform': '"Windows"',
-    # 'Cookie': 'UM_distinctid=1966651a52b93a-0a2efd771a98d6-26011c51-1fa400-1966651a52c1843; wzws_sessionid=gDEyNS44MC4yMDYuMTI3gTMzZDBmMoJjYWJhODSgaAnPdA==; HMACCOUNT=78DFBE33FB144353; UM_distinctid=0; Hm_lvt_d78a621da6111a54cda8ed0e717115b9=0; HMACCOUNT=0; Hm_lpvt_d78a621da6111a54cda8ed0e717115b9=0; faxin-cpws-al-token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE3NDU1MDAxMzksInVzZXJuYW1lIjoiZ215Q2ZDMWRRVk0yRnc3Z1I0NE0wd0xsUUExdHg5b2JTTkNIenUvdWZmNGNlQ3g5b2owK2xobEhsaEZMMHJJM1hIYXFKZ0UwejJBPSJ9.Qrk2JjDGLlEnJvwbYvdaLykR5jlkTjmmZS2FyPboPKQ; Hm_lvt_d78a621da6111a54cda8ed0e717115b9=1745485678; Hm_lpvt_d78a621da6111a54cda8ed0e717115b9=1745485678',
+    "Accept": "application/json, text/javascript, */*; q=0.01",
+    "Accept-Language": "zh-CN,zh;q=0.9,en;q=0.8,en-US;q=0.7",
+    "Cache-Control": "no-cache",
+    "Connection": "keep-alive",
+    "Content-Type": "application/json;charset=UTF-8",
+    "Origin": "https://rmfyalk.court.gov.cn",
+    "Pragma": "no-cache",
+    "Referer": "https://rmfyalk.court.gov.cn/view/content.html?id=wi%252FKl6U3LKdGtiKXVu3kUyXJ4HGb%252F5abs84RR8h1uDU%253D&lib=ck&cf=01",
+    "Sec-Fetch-Dest": "empty",
+    "Sec-Fetch-Mode": "cors",
+    "Sec-Fetch-Site": "same-origin",
+    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36",
+    "X-Requested-With": "XMLHttpRequest",
+    "sec-ch-ua": "\"Not)A;Brand\";v=\"8\", \"Chromium\";v=\"138\", \"Google Chrome\";v=\"138\"",
+    "sec-ch-ua-mobile": "?0",
+    "sec-ch-ua-platform": "\"Windows\""
 }
-
 session = requests.Session()
 
 
 def time_bi(cpws_al_rk_time):
     time1 = datetime.strptime(cpws_al_rk_time, '%Y-%m-%d %H:%M:%S')
-    time2 = datetime.strptime('2024-12-31', '%Y-%m-%d')
+    time2 = datetime.strptime('2025-04-23', '%Y-%m-%d')
     return time1 >= time2
 
 
@@ -112,7 +110,8 @@ def search_page(page, category, lib):
     }
 
     data = json.dumps(data, separators=(',', ':'))
-    response = session.post(url, headers=headers, cookies=cookies, data=data)
+    response = session.post(url, headers=headers, cookies=cookies, data=data, timeout=50)
+
     json_data_lis = json.loads(response.text)['data']['datas']
     for json_data in json_data_lis:
         cpws_al_rk_time = json_data['cpws_al_rk_time']  # 入库日期
@@ -146,94 +145,109 @@ def rmfy_data(cpws_url, cpws_id, cpws_al_case_sort_name, cpws_al_sort_name, cpws
     }
 
     data = json.dumps(data, separators=(',', ':'))
-    response = session.post(url, headers=headers, cookies=cookies, data=data)
-    # print(response.text)
-    josn_page = json.loads(response.text)
-    title = josn_page['data']['data']['cpws_al_title']  # 标题
-    cpws_al_cpyz = josn_page['data']['data']['cpws_al_cpyz']  # 裁判要旨
-    cpws_al_keyword = josn_page['data']['data']['cpws_al_keyword']  # 关键字(列表)
-    cpws_al_jbaq = josn_page['data']['data']['cpws_al_jbaq']  # 基本案情
-    cpws_al_glsy = josn_page['data']['data']['cpws_al_glsy']  # 关联索
-    cpws_al_no = josn_page['data']['data']['cpws_al_no']  # 入库编号
-    # cpws_al_sub_title = josn_page['a_data']['a_data']['cpws_al_sub_title']
-    cpws_al_cply = josn_page['data']['data']['cpws_al_cply']  # 裁判理由
+    response = session.post(url, headers=headers, cookies=cookies, data=data, timeout=50)
+    try:
+        # print(response.text)
+        josn_page = json.loads(response.text)
+        # print('josn_page:\t', josn_page)
+        title = josn_page['data']['data']['cpws_al_title']  # 标题
+        cpws_al_cpyz = josn_page['data']['data']['cpws_al_cpyz']  # 裁判要旨
+        cpws_al_keyword = josn_page['data']['data']['cpws_al_keyword']  # 关键字(列表)
+        cpws_al_jbaq = josn_page['data']['data']['cpws_al_jbaq']  # 基本案情
+        cpws_al_glsy = josn_page['data']['data']['cpws_al_glsy']  # 关联索
+        cpws_al_no = josn_page['data']['data']['cpws_al_no']  # 入库编号
+        # cpws_al_sub_title = josn_page['a_data']['a_data']['cpws_al_sub_title']
+        cpws_al_cply = josn_page['data']['data']['cpws_al_cply']  # 裁判理由
 
-    cpws_al_case_sort_name = cpws_al_case_sort_name  # 案例类型
-    filename = filename  # 文件名
-    cpws_al_sort_name = cpws_al_sort_name  # 案由/罪名
-    cpws_al_slfy_name = cpws_al_slfy_name  # 审理法院
-    cpws_al_zs_date = josn_page['data']['data']['cpws_al_zs_date']  # 裁判日期
-    cpws_al_zs_date = cpws_al_zs_date.replace('.', '-')  # 时间处理
-    cpws_al_ajzh = cpws_al_ajzh  # 案号
-    cpws_al_slcx_name = cpws_al_slcx_name  # 审理程序
-    cpws_al_rk_time = cpws_al_rk_time  # 入库时间
-    cpws_al_ts_name = cpws_al_ts_name  # 文书类型
-    cpws_al_sf = josn_page['data']['data']['cpws_al_sf']  # 地域
-    file_content = {  # 文件内容
-        'title': title,  # 标题
-        'cpws_al_keyword': cpws_al_keyword,  # 关键字
-        'cpws_al_jbaq': cpws_al_jbaq,  # 基本案情
-        'cpws_al_cply': cpws_al_cply,  # 裁判结果/裁判理由
-        'cpws_al_cpyz': cpws_al_cpyz,  # 裁判要旨
-        'cpws_al_glsy': cpws_al_glsy,  # 关联索
+        cpws_al_case_sort_name = cpws_al_case_sort_name  # 案例类型
 
-    }
-    spnf = cpws_al_rk_time.split('-')[0]
-    cpws_url = cpws_url  # 来源链接
-    if lib == 'cpwsAl_01':
-        allx = '指导性案例'
-        alh = '指导性案例'
-    elif lib == 'cpwsAl_02':
-        allx = '参考案例'
-        alh = '参考案例'
-    cpjg = clean_html_tags(extract_relevant_part(cpws_al_cply))
+        if "：" in filename:
+            split_text = filename.split("：")
+            alh = split_text[0]
+            pcmc = split_text[1]
+        else:
+            alh = 'null'
+            pcmc = filename
+        cpws_al_sort_name = cpws_al_sort_name  # 案由/罪名
+        cpws_al_slfy_name = cpws_al_slfy_name  # 审理法院
+        try:
+            cpws_al_zs_date = josn_page['data']['data']['cpws_al_zs_date']  # 裁判日期
+            cpws_al_zs_date = cpws_al_zs_date.replace('.', '-')  # 时间处理 | "2021-04-15"
+            spnf = cpws_al_zs_date[:4]  # 2021
+        except Exception as e:
+            cpws_al_zs_date = "null"
+            spnf = "null"
+        cpws_al_ajzh = cpws_al_ajzh  # 案号
+        cpws_al_slcx_name = cpws_al_slcx_name  # 审理程序
+        cpws_al_rk_time = cpws_al_rk_time  # 入库时间
+        cpws_al_ts_name = cpws_al_ts_name  # 文书类型
+        cpws_al_sf = josn_page['data']['data']['cpws_al_sf']  # 地域
+        file_content = {  # 文件内容
+            'title': title,  # 标题
+            'cpws_al_keyword': cpws_al_keyword,  # 关键字
+            'cpws_al_jbaq': cpws_al_jbaq,  # 基本案情
+            'cpws_al_cply': cpws_al_cply,  # 裁判结果/裁判理由
+            'cpws_al_cpyz': cpws_al_cpyz,  # 裁判要旨
+            'cpws_al_glsy': cpws_al_glsy,  # 关联索
 
-    data_j = {
-        'pcmc': filename,  # 批次名称
-        'allx': allx,  # 案例类型
-        "alzt": "null",  # 案例主题
-        'fbjg': '中华人民共和国最高人民法院',  # 发布机构
-        # 'fbsj': cpws_al_rk_time,  # 发布时间
-        'fbsj': 'null',  # 发布时间
-        'sjlx': '参考案例',  # 数据类型
-        'gklx': '信息公开',  # 公开类型
-        'almc': filename,  # 案例名称
-        # 'alh': alh,  # 案例号
-        'alh': 'null',  # 案例号
-        'gjc': '/'.join(cpws_al_keyword),  # 关键字
-        'cpyd': clean_html_tags(cpws_al_cpyz),  # 裁判要点
-        'xgft': clean_html_tags(cpws_al_glsy),  # 相关法条
-        'jbaq': clean_html_tags(cpws_al_jbaq),  # 基本案情
-        'cpjg': cpjg,  # 裁判结果
-        'cply': clean_html_tags(cpws_al_cply),  # 裁判理由
-        'spzzcy': 'null',  # 审判组织成员
-        'ah': cpws_al_ajzh,  # 案号
-        'ajlx': cpws_al_case_sort_name,  # 案例类型
-        'alsy': 'null',  # 案例索引
-        'ay': cpws_al_sort_name,  # 罪由/罪名
-        'wslx': 'null',  # 文书类型
-        'cprq': cpws_al_zs_date,  # 裁判日期
-        'slfy': cpws_al_slfy_name,  # 审理法院
-        'slcx': cpws_al_slcx_name,  # 审理程序
-        'sxx': '现行有效',  # 时效性
-        'bd': 'null',  # 标的
-        'slf': 'null',  # 受理费
-        'dsrmc': f'{title}',  # 当事人名称
-        'gsjg': 'null',  # 公诉机关
-        'kjg': 'null',  # 抗诉机关
-        'ssdlrmc': 'null',  # 诉讼代理人名
-        'ls': 'null',  # 律师
-        'lssws': 'null',  # 律师事务所
-        'orglist/url': cpws_url,  # 数据来源链接
-        'wsid': 'null',  # 唯一标识
-        'code': cpws_al_no,  # 入库编码
-        'spnf': f'{spnf}年',  # 审判年份
-        'dy': cpws_al_sf,  # 地域
-        'fycj': '高级人民法院"',  # 法院层级
-        'bde': 'null',  # 标的额
-        'jdlx': 'null',  # 结果类型
-    }
-    json_file(data_j)
+        }
+        cpws_url = cpws_url  # 来源链接
+        if lib == 'cpwsAl_01':
+            allx = '指导性案例'
+        elif lib == 'cpwsAl_02':
+            allx = '参考案例'
+        # cpjg = clean_html_tags(extract_relevant_part(cpws_al_cply))
+
+        data_j = {
+            'pcmc': pcmc,  # 批次名称
+            'allx': allx,  # 案例类型
+            "alzt": "null",  # 案例主题
+            'fbjg': '中华人民共和国最高人民法院',  # 发布机构
+            # 'fbsj': cpws_al_rk_time,  # 发布时间
+            'fbsj': 'null',  # 发布时间
+            'sjlx': '参考案例',  # 数据类型
+            'gklx': '信息公开',  # 公开类型
+            'almc': filename,  # 案例名称
+            'alh': alh,  # 案例号
+            'gjc': '/'.join(cpws_al_keyword),  # 关键字
+            'cpyd': clean_html_tags(cpws_al_cpyz),  # 裁判要点
+            'xgft': clean_html_tags(cpws_al_glsy),  # 相关法条
+            'jbaq': clean_html_tags(cpws_al_jbaq),  # 基本案情
+            'cpjg': 'null',  # 裁判结果
+            'cply': clean_html_tags(cpws_al_cply),  # 裁判理由
+            'spzzcy': 'null',  # 审判组织成员
+            'ah': cpws_al_ajzh,  # 案号
+            'ajlx': cpws_al_case_sort_name,  # 案例类型
+            'alsy': clean_html_tags(cpws_al_glsy),  # 案例索引
+            'ay': cpws_al_sort_name,  # 罪由/罪名
+            'wslx': 'null',  # 文书类型
+            'cprq': cpws_al_zs_date,  # 裁判日期
+            'slfy': cpws_al_slfy_name,  # 审理法院
+            'slcx': cpws_al_slcx_name,  # 审理程序
+            'sxx': '现行有效',  # 时效性
+            'bd': 'null',  # 标的
+            'slf': 'null',  # 受理费
+            'dsrmc': f'{title}',  # 当事人名称
+            'gsjg': 'null',  # 公诉机关
+            'ksjg': 'null',  # 抗诉机关
+            'ssdlrmc': 'null',  # 诉讼代理人名
+            'ls': 'null',  # 律师
+            'lssws': 'null',  # 律师事务所
+            'orglist/url': cpws_url,  # 数据来源链接
+            'wsid': 'null',  # 唯一标识
+            'code': cpws_al_no,  # 入库编码
+            'spnf': f'{spnf}年',  # 审判年份
+            'dy': cpws_al_sf,  # 地域
+            'fycj': '中级人民法院',  # 法院层级
+            'bde': 'null',  # 标的额
+            'jdlx': 'null',  # 结果类型
+        }
+        json_file(data_j)
+    except Exception as e:
+        print(f"发生错误 {e}")
+        print('响应体:\t', response.text)
+        print('响应状态:\t', response.status_code)
+        print('文章ID:\t', cpws_id)
 
 
 if __name__ == '__main__':
@@ -241,39 +255,46 @@ if __name__ == '__main__':
     libs = ['cpwsAl_01', 'cpwsAl_02']  # cpwsAl_01-->指导性案例   cpwsAl_02-->参考案例
 
     category = '04'
-    lib = 'cpwsAl_02'
-    for i in range(1, 10):
+    lib = 'cpwsAl_01'
+    for i in range(1, 15):
         time.sleep(random.uniform(1, 3))
         print(f'第{i}页--------------------------')
         search_page(i, category, lib)
 
 """
+2024-04-23 ~ 2025-07-07
+02  cpwsAl_01   1页  4
+02  cpwsAl_02   9页  93
+01  cpwsAl_01   1页  1
+01  cpwsAl_02   7页  68
+03  cpwsAl_01   0页  0
+03  cpwsAl_02   3页  29
+05  cpwsAl_01   0页  0   
+05  cpwsAl_02   2页  17
+04  cpwsAl_01   0页  0
+04  cpwsAl_02   1页  5
+总计-----------------217
+===================================================
 2024-12-31 ~ 2025-04-24
 02  cpwsAl_01  1页 。 2
 02  cpwsAl_02  5页 。 48
- 
 01  cpwsAl_01  1页 。 1
 01  cpwsAl_02  8页 。 89 
-
 03  cpwsAl_01  0页 。 0
 03  cpwsAl_02  1页 。 7
-
 05  cpwsAl_01  1页 。 6 
 05  cpwsAl_02  1页 。 7 
-
 04  cpwsAl_01  0页 。 0
 04  cpwsAl_02  1页 。 3    
-
-总计   
 
 
 """
 
-    # for i in range(1, 177):
-    #     search_page(i, category)
+# for i in range(1, 177):
+#     search_page(i, category)
 
-    # start_time_1 = time.time()
-    # with concurrent.futures.ProcessPoolExecutor(max_workers=8) as executor:
-    #     for i in range(1, 177):
-    #         executor.submit(search_page, i, category)
-    # print("线程池计算的时间：" + str(time.time() - start_time_1), "秒")
+# start_time_1 = time.time()
+# with concurrent.futures.ProcessPoolExecutor(max_workers=8) as executor:
+#     for i in range(1, 177):
+#         executor.submit(search_page, i, category)
+# print("线程池计算的时间：" + str(time.time() - start_time_1), "秒")

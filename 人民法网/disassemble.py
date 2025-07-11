@@ -46,16 +46,16 @@ def merge_json_files(input_file1, input_file2, output_file):
         json.dump(merged_data, f, ensure_ascii=False, indent=2)
 
 
-# # 用法示例（自动从中间拆分）
-# split_json_file(
-#     input_file="rmfy案例库子.json",
-#     output_file1="rmfy案例库子1.json",
-#     output_file2="rmfy案例库子2.json"
-# )
-
-# 用法示例（合并两个文件）
-merge_json_files(
-    input_file1="rmfy案例库子1.json",
-    input_file2="rmfy案例库子2.json",
-    output_file="rmfy案例库子_merged.json"
+# 自动从中间拆分
+split_json_file(
+    input_file="rmfy案例库子.json",
+    output_file1="rmfy案例库子1.json",
+    output_file2="rmfy案例库子2.json"
 )
+
+# 合并两个文件
+# merge_json_files(
+#     input_file1="rmfy案例库子1.json",
+#     input_file2="rmfy案例库子2.json",
+#     output_file="rmfy案例库子_merged.json"
+# )

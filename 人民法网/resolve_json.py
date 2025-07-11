@@ -24,4 +24,4 @@ def extract_fields_to_new_json(input_file, output_file, fields_to_keep):
 
 # 用法示例
 fields_to_extract = ["alsy", "dsrmc", "spnf", "dy", "fycj", "alh", "sjlx", "orglist/url"]
-extract_fields_to_new_json("2024-12-31~2025-04-24rmfy案例库.json", "rmfy案例库子.json", fields_to_extract)
+extract_fields_to_new_json("人民法院案例库/2025-04-23~2025-07-07rmfy案例库.json", "rmfy案例库子.json", fields_to_extract)

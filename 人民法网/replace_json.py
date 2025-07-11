@@ -30,10 +30,10 @@ def update_original_with_new_data(original_file, new_data_file, output_file, key
         json.dump(original_data, f, ensure_ascii=False, indent=2)
 
 
-# 用法示例（以 orglist/url 为关键字段）
+# （以 orglist/url 为关键字段）
 update_original_with_new_data(
-    original_file="2024-12-31~2025-04-24rmfy案例库.json",
-    new_data_file="rmfy案例库子_merged.json",
-    output_file="new-2024-12-31~2025-04-24rmfy案例库.json",
+    original_file="人民法院案例库/2025-04-23~2025-07-07rmfy案例库.json",
+    new_data_file="案例库.json",
+    output_file="new-2025-04-23~2025-07-07rmfy案例库.json",
     key_field="orglist/url"
 )
